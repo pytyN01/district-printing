@@ -15,7 +15,7 @@ export default function Sidebar({ user, hidden, setHidden }) {
           <div className="mt-5" />
           <button
             onClick={() => setHidden(!hidden)}
-            className="btn btn-outline-secondary ml-3 mt-5"
+            className="btn btn-outline-secondary ml-3 mt-4"
           >
             Close Sidebar
           </button>
