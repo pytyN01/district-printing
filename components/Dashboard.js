@@ -52,12 +52,7 @@ export default function Dashboard() {
             setHidden={(x) => setHidden(x)}
             user={user}
           />
-          <main
-            className={
-              hidden ? "ms-sm-auto col-12 px-4" : "ms-sm-auto col-10 px-4"
-            }
-            style={{ height: "90vh" }}
-          >
+          <main className="ms-sm-auto col-12 px-4" style={{ height: "90vh" }}>
             <Filters
               user={user}
               hidden={hidden}
