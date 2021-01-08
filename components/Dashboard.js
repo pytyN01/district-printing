@@ -1,7 +1,6 @@
 import React from "react";
 import TBody from "./TBody";
 import THead from "./THead";
-import Sidebar from "./Sidebar";
 import Filters from "./Filters";
 import Loading from "./Loading";
 import Header from "./Header";
@@ -44,20 +43,11 @@ export default function Dashboard() {
 
   return user ? (
     <React.Fragment>
-      <Header hidden={hidden} setHidden={(x) => setHidden(x)} />
+      <Header />
       <div className="container-fluid">
         <div className="row mt-0">
-          <Sidebar
-            hidden={hidden}
-            setHidden={(x) => setHidden(x)}
-            user={user}
-          />
           <main className="ms-sm-auto col-12 px-4" style={{ height: "90vh" }}>
-            <Filters
-              user={user}
-              hidden={hidden}
-              setHidden={(x) => setHidden(x)}
-            />
+            <Filters user={user} />
 
             <div className="table-responsive">
               <table className="table table-bordered table-striped table-hover  table-sm">

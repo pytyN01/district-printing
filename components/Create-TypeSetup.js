@@ -18,12 +18,35 @@ export default function CreateTypeSetup() {
 
         <div className="row mt-2">
           <div className="col-sm-12">
-            <input
-              type="text"
-              className="form-control"
-              id="inputPassword"
-              placeholder="Screen Print, DTG?"
-            />
+            <div className="btn-group" role="group">
+              <button
+                style={{ paddingLeft: "9.7vw", paddingRight: "9.7vw" }}
+                id="btnGroupDrop1"
+                type="button"
+                className="btn btn-outline-secondary dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Job Type
+              </button>
+              <ul className="dropdown-menu">
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Something Here
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Something Here
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Something Here
+                  </a>
+                </li>
+              </ul>
+            </div>
             <textarea
               placeholder="Notes"
               className="form-control mt-2"

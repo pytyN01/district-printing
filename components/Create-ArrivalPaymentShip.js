@@ -18,7 +18,8 @@ export default function CreateArrivalPaymentShip() {
           <div className="col-4">
             <div className="dropdown">
               <button
-                className="btn btn-outline-secondary dropdown-toggle px-5"
+                style={{ paddingLeft: "5.1vw", paddingRight: "5.1vw" }}
+                className="btn btn-outline-secondary dropdown-toggle"
                 type="button"
                 id="dropdownArrival"
                 data-bs-toggle="dropdown"
@@ -51,7 +52,8 @@ export default function CreateArrivalPaymentShip() {
               <div className="col-12">
                 <div className="dropdown">
                   <button
-                    className="btn btn-outline-secondary dropdown-toggle px-5"
+                    style={{ paddingLeft: "4.3vw", paddingRight: "4.3vw" }}
+                    className="btn btn-outline-secondary dropdown-toggle"
                     type="button"
                     id="dropdownArrivalDate"
                     data-bs-toggle="dropdown"
@@ -224,7 +226,7 @@ export default function CreateArrivalPaymentShip() {
               </div>
               <div className="col-6 mt-n4">
                 <div className="row mb-2">
-                  <div className="col-5">
+                  <div className="col-2">
                     <div className="form-check">
                       <input
                         className="form-check-input"
@@ -240,10 +242,11 @@ export default function CreateArrivalPaymentShip() {
                       </label>
                     </div>
                   </div>
-                  <div className="col-7">
+                  <div className="col-10">
                     <div className="dropdown">
                       <button
-                        className="btn btn-outline-secondary dropdown-toggle px-5"
+                        style={{ paddingLeft: "6vw", paddingRight: "6vw" }}
+                        className="btn btn-outline-secondary dropdown-toggle"
                         type="button"
                         id="dropdownPickup"
                         data-bs-toggle="dropdown"

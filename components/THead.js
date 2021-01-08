@@ -6,10 +6,13 @@ export default function THead({ user }) {
       <thead>
         <tr>
           <th className="align-top">
-            <h4>Invoice #</h4>
+            <h4>ID #</h4>
           </th>
           <th className="align-top">
             <h4>Job Name</h4>
+          </th>
+          <th className="align-top">
+            <h4>Invoice #</h4>
           </th>
           {user === "Andrew" && (
             <th className="align-top">

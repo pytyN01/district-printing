@@ -1,6 +1,10 @@
+import { useRouter } from "next/router";
 import React from "react";
+import Add from "./Dashboard-Add";
 
-export default function Filters({ hidden, setHidden, user }) {
+export default function Filters({ user }) {
+  const router = useRouter();
+
   const capitalize = (s) => {
     if (typeof s !== "string") return "";
     return s.charAt(0).toUpperCase() + s.slice(1);
@@ -8,8 +12,8 @@ export default function Filters({ hidden, setHidden, user }) {
 
   return (
     <React.Fragment>
-      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <div className="btn-toolbar mb-2 mb-md-0">
+      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 border-bottom">
+        <div className="btn-toolbar mb-2">
           <div className="input-group p-1">
             <input
               type="text"
@@ -26,21 +30,19 @@ export default function Filters({ hidden, setHidden, user }) {
               >
                 Search
               </button>
-              <button type="button" className="btn btn-outline-danger">
+              <button type="button" className="btn btn-outline-secondary">
                 Reset Filters
               </button>
             </div>
           </div>
 
           <div
-            className="btn-group p-1 d-grid gap-2"
+            className="btn-group p-1"
             role="group"
             aria-label="Button group with nested dropdown"
           >
             <div className="btn-group" role="group">
-              <button type="button" className="btn btn-outline-primary">
-                Add Vendor
-              </button>
+              <Add />
               <button
                 id="btnGroupDrop1"
                 type="button"
@@ -48,7 +50,7 @@ export default function Filters({ hidden, setHidden, user }) {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Vendor
+                Customer
               </button>
               <ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <li>
@@ -69,6 +71,22 @@ export default function Filters({ hidden, setHidden, user }) {
               </ul>
             </div>
           </div>
+
+          <div
+            className="btn-group p-1"
+            role="group"
+            aria-label="Create New Order"
+          >
+            <button
+              type="button"
+              onClick={() => router.push("/create")}
+              className="btn btn-outline-success"
+              id="search-button"
+            >
+              Create Order
+            </button>
+          </div>
+
           <div className="dropdown p-1">
             <button
               className="btn btn-secondary dropdown-toggle"

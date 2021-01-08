@@ -5,7 +5,7 @@ export default function LoginHome() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Login | District Printing</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Login />

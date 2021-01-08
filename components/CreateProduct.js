@@ -47,10 +47,10 @@ export default function CreateProduct() {
             <div className="carousel-item active">
               <div className="d-block w-100">
                 <div className="row">
-                  <div className="col-sm-2 mb-2">
+                  <div className="col-2 mb-2">
                     <h5>Product 1</h5>
                   </div>
-                  <div className="col-sm-4 mb-2 ml-n4">
+                  <div className="col-4 mb-2 ml-n4">
                     <div className="row">
                       <div className="col-3">
                         <div className="form-check">
@@ -68,7 +68,7 @@ export default function CreateProduct() {
                           </label>
                         </div>
                       </div>
-                      <div className="col-4">
+                      <div className="col-3">
                         <div className="form-check">
                           <input
                             className="form-check-input"
@@ -100,24 +100,32 @@ export default function CreateProduct() {
                           </label>
                         </div>
                       </div>
+                      <div className="col-3">
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="otherCheckbox"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="otherCheckbox"
+                          >
+                            Other
+                          </label>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="col-sm-5 mb-2 ml-n3">
+                  <div className="col-5 mb-2">
                     <div className="row">
-                      <div className="col-sm-2 form-check">
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="otherProductCheckbox"
-                        />
-                      </div>
-                      <div className="col-sm-4 px-1 ml-n4">
+                      <div className="col-sm-5 px-1">
                         <input
                           type="text"
                           className="form-control"
                           id="otherProductOne"
-                          placeholder="Other"
+                          placeholder="Other Name"
                         />
                       </div>
                       <div className="col-sm-6 px-1">
@@ -130,7 +138,7 @@ export default function CreateProduct() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-sm-1 mb-2">
+                  <div className="col-1 mb-2">
                     <div className="form-check ml-n3">
                       <input
                         className="form-check-input"
@@ -222,8 +230,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XS
@@ -233,8 +241,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       S
@@ -244,8 +252,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       M
@@ -255,8 +263,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       L
@@ -266,8 +274,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XL
@@ -277,8 +285,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XXL
@@ -288,8 +296,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XXXL
@@ -493,7 +501,7 @@ export default function CreateProduct() {
                           </label>
                         </div>
                       </div>
-                      <div className="col-4">
+                      <div className="col-3">
                         <div className="form-check">
                           <input
                             className="form-check-input"
@@ -525,24 +533,32 @@ export default function CreateProduct() {
                           </label>
                         </div>
                       </div>
+                      <div className="col-3">
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="otherCheckbox2"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="otherCheckbox2"
+                          >
+                            Other
+                          </label>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="col-sm-5 mb-2 ml-n3">
+                  <div className="col-sm-5 mb-2">
                     <div className="row">
-                      <div className="col-sm-2 form-check">
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="otherProductCheckbox2"
-                        />
-                      </div>
-                      <div className="col-sm-4 px-1 ml-n4">
+                      <div className="col-sm-5 px-1">
                         <input
                           type="text"
                           className="form-control"
                           id="otherProductOne2"
-                          placeholder="Other"
+                          placeholder="Other Name"
                         />
                       </div>
                       <div className="col-sm-6 px-1">
@@ -647,8 +663,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XS
@@ -658,8 +674,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       S
@@ -669,8 +685,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       M
@@ -680,8 +696,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       L
@@ -691,8 +707,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XL
@@ -702,8 +718,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XXL
@@ -713,8 +729,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XXXL
@@ -918,7 +934,7 @@ export default function CreateProduct() {
                           </label>
                         </div>
                       </div>
-                      <div className="col-4">
+                      <div className="col-3">
                         <div className="form-check">
                           <input
                             className="form-check-input"
@@ -950,24 +966,32 @@ export default function CreateProduct() {
                           </label>
                         </div>
                       </div>
+                      <div className="col-3">
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="otherCheckbox3"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="otherCheckbox3"
+                          >
+                            Other
+                          </label>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="col-sm-5 mb-2 ml-n3">
+                  <div className="col-sm-5 mb-2">
                     <div className="row">
-                      <div className="col-sm-2 form-check">
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="otherProductCheckbox3"
-                        />
-                      </div>
-                      <div className="col-sm-4 px-1 ml-n4">
+                      <div className="col-sm-5 px-1">
                         <input
                           type="text"
                           className="form-control"
                           id="otherProductOne3"
-                          placeholder="Other"
+                          placeholder="Other Name"
                         />
                       </div>
                       <div className="col-sm-6 px-1">
@@ -1072,8 +1096,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XS
@@ -1083,8 +1107,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       S
@@ -1094,8 +1118,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       M
@@ -1105,8 +1129,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       L
@@ -1116,8 +1140,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XL
@@ -1127,8 +1151,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XXL
@@ -1138,8 +1162,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XXXL
@@ -1343,7 +1367,7 @@ export default function CreateProduct() {
                           </label>
                         </div>
                       </div>
-                      <div className="col-4">
+                      <div className="col-3">
                         <div className="form-check">
                           <input
                             className="form-check-input"
@@ -1375,24 +1399,32 @@ export default function CreateProduct() {
                           </label>
                         </div>
                       </div>
+                      <div className="col-3">
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="otherCheckbox4"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="otherCheckbox4"
+                          >
+                            Other
+                          </label>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="col-sm-5 mb-2 ml-n3">
+                  <div className="col-sm-5 mb-2">
                     <div className="row">
-                      <div className="col-sm-2 form-check">
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="otherProductCheckbox4"
-                        />
-                      </div>
-                      <div className="col-sm-4 px-1 ml-n4">
+                      <div className="col-sm-5 px-1">
                         <input
                           type="text"
                           className="form-control"
                           id="otherProductOne4"
-                          placeholder="Other"
+                          placeholder="Other Name"
                         />
                       </div>
                       <div className="col-sm-6 px-1">
@@ -1497,8 +1529,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XS
@@ -1508,8 +1540,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       S
@@ -1519,8 +1551,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       M
@@ -1530,8 +1562,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       L
@@ -1541,8 +1573,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XL
@@ -1552,8 +1584,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XXL
@@ -1563,8 +1595,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XXXL
@@ -1768,7 +1800,7 @@ export default function CreateProduct() {
                           </label>
                         </div>
                       </div>
-                      <div className="col-4">
+                      <div className="col-3">
                         <div className="form-check">
                           <input
                             className="form-check-input"
@@ -1800,19 +1832,27 @@ export default function CreateProduct() {
                           </label>
                         </div>
                       </div>
+                      <div className="col-3">
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="otherCheckbox5"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="otherCheckbox5"
+                          >
+                            Other
+                          </label>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="col-sm-5 mb-2 ml-n3">
+                  <div className="col-sm-5 mb-2">
                     <div className="row">
-                      <div className="col-sm-2 form-check">
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="otherProductCheckbox5"
-                        />
-                      </div>
-                      <div className="col-sm-4 px-1 ml-n4">
+                      <div className="col-sm-5 px-1">
                         <input
                           type="text"
                           className="form-control"
@@ -1923,8 +1963,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XS
@@ -1934,8 +1974,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       S
@@ -1945,8 +1985,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       M
@@ -1956,8 +1996,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       L
@@ -1967,8 +2007,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XL
@@ -1978,8 +2018,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XXL
@@ -1989,8 +2029,8 @@ export default function CreateProduct() {
                       type="button"
                       className="btn btn-outline-secondary mx-2"
                       style={{
-                        paddingLeft: "2.2rem",
-                        paddingRight: "2.2rem",
+                        paddingLeft: "2.36vw",
+                        paddingRight: "2.36vw",
                       }}
                     >
                       XXXL

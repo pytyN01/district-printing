@@ -2,6 +2,7 @@ import React from "react";
 import ButtonOptions from "./ButtonOptions";
 
 export default function TBody({ user, data }) {
+  const [save, setSave] = React.useState(false);
   return (
     <React.Fragment>
       {data.map((item) => (
@@ -25,6 +26,25 @@ export default function TBody({ user, data }) {
                 - Add Comment
               </a>
             </small>
+          </td>
+          <td>
+            <div className="input-group p-1">
+              <input
+                readOnly={save}
+                className="form-control"
+                type="text"
+                id="invoiceNumberInput"
+                placeholder="Invoice #"
+              />
+              <button
+                onClick={() => setSave(!save)}
+                type="button"
+                className="btn btn-outline-success"
+                id="invoiceSaveButton"
+              >
+                {save ? "Edit" : "Save"}
+              </button>
+            </div>
           </td>
           {user === "Andrew" && (
             <td>
