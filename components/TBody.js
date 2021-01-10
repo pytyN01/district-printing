@@ -1,6 +1,7 @@
 import React from "react";
 import ButtonOptions from "./ButtonOptions";
 import ButtonPDF from "./ButtonPDF";
+import AddPrinter from "./Dashboard-Add-Printer";
 
 export default function TBody({ user, data }) {
   const [save, setSave] = React.useState(false);
@@ -10,7 +11,7 @@ export default function TBody({ user, data }) {
         <tr key={item.id}>
           <td className="text-center">
             <label className="form-check-label">
-              <h4>{item.id}</h4>
+              <p>{item.id}</p>
             </label>
             <br />
             <input
@@ -21,7 +22,7 @@ export default function TBody({ user, data }) {
             />
           </td>
           <td>
-            <h4 className="text-nowrap">{item.orderName}</h4>
+            <p className="text-nowrap">{item.orderName}</p>
             {/* <br />
             <small className="text-secondary">
               <a className="text-reset text-decoration-none" href="#">
@@ -33,7 +34,7 @@ export default function TBody({ user, data }) {
             <div className="input-group p-1">
               <input
                 readOnly={save}
-                style={{ width: "100px" }}
+                style={{ maxWidth: "100px" }}
                 className="form-control"
                 type="text"
                 id="invoiceNumberInput"
@@ -64,34 +65,29 @@ export default function TBody({ user, data }) {
           )}
           {user === "Andrew" && (
             <td>
-              <h4>{item.customerName}</h4>
+              <p>{item.customerName}</p>
               <small className="text-secondary">{`Agent - ${item.customerAgent}`}</small>
             </td>
           )}
           {user === "Andrew" && (
             <td>
-              <h4>{item.created}</h4>
+              <p>{item.created}</p>
             </td>
           )}
           <td>
-            <h4>{item.arrival}</h4>
+            <p>{item.arrival}</p>
           </td>
           <td>
-            <h4 className="text-nowrap">{item.status}</h4>
+            <p className="text-nowrap">{item.status}</p>
             <small className="text-secondary">{item.statusEditor}</small>
           </td>
           <td>
-            <h4>{item.printer}</h4>
+            <p>{item.printer}</p>
             <small className="text-secondary">{item.printerComment}</small>
           </td>
           {user === "Andrew" && (
             <td>
-              <button
-                type="button"
-                className="btn btn-lg btn-outline-secondary"
-              >
-                ✏
-              </button>
+              <AddPrinter />
             </td>
           )}
           <td>

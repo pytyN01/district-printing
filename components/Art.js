@@ -30,7 +30,6 @@ export default function DropZone() {
             onClick={removeFile(file)}
             type="button"
             className="btn btn-outline-light ml-2"
-            aria-label="Close"
           >
             <i className="fas fa-times"></i>
           </button>

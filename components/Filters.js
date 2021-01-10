@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
-import Add from "./Dashboard-Add";
+import AddCustomer from "./Dashboard-Add-Customer";
 
 export default function Filters({ user }) {
   const router = useRouter();
@@ -15,14 +15,8 @@ export default function Filters({ user }) {
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 border-bottom">
         <div className="btn-toolbar mb-2">
           <div className="input-group p-1">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search"
-              aria-label="Search"
-              aria-describedby="search-button"
-            />
-            <div className="btn-group" role="group" aria-label="Set Search">
+            <input type="text" className="form-control" placeholder="Search" />
+            <div className="btn-group" role="group">
               <button
                 type="button"
                 className="btn btn-outline-success"
@@ -36,13 +30,9 @@ export default function Filters({ user }) {
             </div>
           </div>
 
-          <div
-            className="btn-group p-1"
-            role="group"
-            aria-label="Button group with nested dropdown"
-          >
+          <div className="btn-group p-1" role="group">
             <div className="btn-group" role="group">
-              <Add />
+              <AddCustomer />
               <button
                 id="btnGroupDrop1"
                 type="button"
@@ -52,7 +42,7 @@ export default function Filters({ user }) {
               >
                 Customer
               </button>
-              <ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <ul className="dropdown-menu">
                 <li>
                   <a className="dropdown-item" href="#">
                     Something Here
@@ -72,11 +62,7 @@ export default function Filters({ user }) {
             </div>
           </div>
 
-          <div
-            className="btn-group p-1"
-            role="group"
-            aria-label="Create New Order"
-          >
+          <div className="btn-group p-1" role="group">
             <button
               type="button"
               onClick={() => router.push("/create")}
@@ -97,7 +83,7 @@ export default function Filters({ user }) {
             >
               Print Date
             </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <ul className="dropdown-menu">
               <li>
                 <a className="dropdown-item" href="#">
                   Something Here
@@ -126,7 +112,7 @@ export default function Filters({ user }) {
             >
               Date Order
             </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <ul className="dropdown-menu">
               <li>
                 <a className="dropdown-item" href="#">
                   Something Here
@@ -155,7 +141,7 @@ export default function Filters({ user }) {
             >
               Order Status
             </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <ul className="dropdown-menu">
               <li>
                 <a className="dropdown-item" href="#">
                   Something Here
@@ -184,7 +170,7 @@ export default function Filters({ user }) {
             >
               Printer Name
             </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <ul className="dropdown-menu">
               <li>
                 <a className="dropdown-item" href="#">
                   Something Here
@@ -213,7 +199,7 @@ export default function Filters({ user }) {
             >
               Status
             </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <ul className="dropdown-menu">
               <li>
                 <a className="dropdown-item" href="#">
                   Something Here

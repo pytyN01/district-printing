@@ -1,16 +1,19 @@
-import React from "react";
-import TBody from "./TBody";
-import THead from "./THead";
+import { useRouter } from "next/router";
 import Filters from "./Filters";
 import Loading from "./Loading";
 import Header from "./Header";
+import TBody from "./TBody";
+import THead from "./THead";
+import React from "react";
 
 export default function Dashboard({ data }) {
   const [user, setUser] = React.useState(true);
+  const router = useRouter();
 
   React.useEffect(() => {
     const user = localStorage.getItem("name");
-    setUser(user);
+    if (user === "null") router.push("/");
+    else setUser(user);
   }, []);
 
   return user ? (

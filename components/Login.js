@@ -4,6 +4,7 @@ import React from "react";
 export default function Login() {
   const router = useRouter();
 
+  const [savedUser, setSavedUser] = React.useState(null);
   const [user, setUser] = React.useState(null);
   const [password, setPassword] = React.useState(null);
 
@@ -53,13 +54,8 @@ export default function Login() {
   React.useEffect(() => {
     const loggedIN = localStorage.getItem("name");
 
-    if (loggedIN === "Andrew") {
-      router.push("/dashboard");
-    } else if (loggedIN === "Sales") {
-      router.push("/dashboard");
-    } else if (loggedIN === "Production") {
-      router.push("/dashboard");
-    }
+    if (loggedIN !== "null") router.push("/dashboard");
+    else setSavedUser(loggedIN);
   }, []);
 
   return (

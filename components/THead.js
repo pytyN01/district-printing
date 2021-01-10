@@ -6,63 +6,63 @@ export default function THead({ user }) {
       <thead>
         <tr>
           <th className="align-top">
-            <h4>ID #</h4>
+            <p>ID #</p>
           </th>
           <th className="align-top">
-            <h4 className="text-nowrap">Job Name</h4>
+            <p className="text-nowrap">Job Name</p>
           </th>
           <th className="align-top">
-            <h4>Invoice #</h4>
+            <p>Invoice #</p>
           </th>
           {user === "Andrew" && (
             <th className="align-top">
-              <h4>Apparel</h4>
+              <p>Apparel</p>
             </th>
           )}
           {user === "Andrew" && (
             <th className="align-top">
-              <h4 className="text-nowrap">Customer</h4>
+              <p className="text-nowrap">Customer</p>
             </th>
           )}
           {user === "Andrew" && (
             <th className="align-top">
-              <h4 className="text-nowrap">Created Date</h4>
+              <p className="text-nowrap">Created Date</p>
             </th>
           )}
           {user === "Andrew" ? (
             <th className="align-top">
-              <h4 className="text-nowrap">Arrival Date</h4>
+              <p className="text-nowrap">Arrival Date</p>
             </th>
           ) : (
             <th className="align-top">
-              <h4>Due Date</h4>
+              <p>Due Date</p>
             </th>
           )}
           <th className="align-top">
-            <h4>Status</h4>
+            <p>Status</p>
           </th>
           {user === "Andrew" ? (
             <th className="align-top">
-              <h4 className="text-nowrap">Printer Name</h4>
+              <p className="text-nowrap">Printer Name</p>
             </th>
           ) : (
             <th className="align-top">
-              <h4>Production</h4>
+              <p>Production</p>
             </th>
           )}
           {user === "Andrew" && (
             <th className="align-top">
-              <h4 className="text-nowrap">Assign Printer</h4>
+              <p className="text-nowrap">Assign Printer</p>
             </th>
           )}
           <th className="align-top">
-            <h4>Art</h4>
+            <p>Art</p>
           </th>
           <th className="align-top">
-            <h4>Packing/Shipping</h4>
+            <p>Packing/Shipping</p>
           </th>
           <th className="align-top">
-            <h4>Options</h4>
+            <p>Options</p>
           </th>
         </tr>
       </thead>

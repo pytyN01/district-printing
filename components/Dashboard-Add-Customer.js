@@ -1,4 +1,4 @@
-export default function Add() {
+export default function AddCustomer() {
   return (
     <>
       <button
@@ -27,7 +27,6 @@ export default function Add() {
                 type="button"
                 className="btn btn-outline-secondary"
                 data-bs-dismiss="modal"
-                aria-label="Close"
               >
                 <i className="fas fa-times"></i>
               </button>

@@ -1,5 +1,4 @@
 import React from "react";
-import Sidebar from "./Sidebar";
 import Loading from "./Loading";
 import Header from "./Header";
 import CreateOrderName from "./Create-OrderName";
@@ -9,13 +8,16 @@ import CreateProduct from "./CreateProduct";
 import CreateArrivalPaymentShip from "./Create-ArrivalPaymentShip";
 import CreatePositionColors from "./Create-PositionColors";
 import CreateSubmit from "./Create-Submit";
+import { useRouter } from "next/router";
 
 export default function Create() {
   const [user, setUser] = React.useState(true);
+  const router = useRouter();
 
   React.useEffect(() => {
     const user = localStorage.getItem("name");
-    setUser(user);
+    if (user === "null") router.push("/");
+    else setUser(user);
   }, []);
 
   return user ? (
