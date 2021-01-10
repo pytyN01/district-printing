@@ -11,10 +11,7 @@ import CreatePositionColors from "./Create-PositionColors";
 import CreateSubmit from "./Create-Submit";
 
 export default function Create() {
-  const [hidden, setHidden] = React.useState(true);
   const [user, setUser] = React.useState(true);
-
-  // const { user, handleSetUser } = React.useContext(Context);
 
   React.useEffect(() => {
     const user = localStorage.getItem("name");
@@ -23,22 +20,10 @@ export default function Create() {
 
   return user ? (
     <React.Fragment>
-      <Header hidden={hidden} setHidden={(x) => setHidden(x)} />
+      <Header />
       <div className="container-fluid">
         <div className="row mt-0">
-          <Sidebar
-            hidden={hidden}
-            setHidden={(x) => setHidden(x)}
-            user={user}
-          />
-          <main
-            className={
-              hidden
-                ? "ms-sm-auto col-md-12 px-md-4"
-                : "ms-sm-auto col-md-10 px-md-4"
-            }
-            style={{ height: "90vh" }}
-          >
+          <main className="col-12 px-4" style={{ height: "90vh" }}>
             <div className="row mt-4">
               <div className="col">
                 <CreateOrderName />

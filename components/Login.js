@@ -73,7 +73,7 @@ export default function Login() {
             }}
             src="/districPrintLogo.jpg"
             className="mb-4"
-            alt="Safer Baby Mask"
+            alt="Distric Print Logo"
           />
           <h1 className="h2 fw-normal text-center">Login</h1>
           <input

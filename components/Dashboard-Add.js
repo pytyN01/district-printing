@@ -29,7 +29,7 @@ export default function Add() {
                 data-bs-dismiss="modal"
                 aria-label="Close"
               >
-                ✖
+                <i className="fas fa-times"></i>
               </button>
             </div>
             <div className="modal-body">

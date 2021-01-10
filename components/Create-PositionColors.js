@@ -1,7 +1,7 @@
 export default function CreatePositionColors() {
   return (
     <div className="row mb-3">
-      <div className="col-sm-6">
+      <div className="col-6">
         <div className="row">
           <div className="col-12">
             <img
@@ -11,7 +11,7 @@ export default function CreatePositionColors() {
               }}
               src="/icon-posi.jpg"
               className="img-thumbnail mt-n2"
-              alt="Safer Baby Mask"
+              alt="Position Icon"
             />
           </div>
 
@@ -95,7 +95,7 @@ export default function CreatePositionColors() {
         </div>
       </div>
 
-      <div className="col-sm-6">
+      <div className="col-6">
         <div className="row">
           <div className="col-12">
             <img
@@ -105,77 +105,66 @@ export default function CreatePositionColors() {
               }}
               src="/icon-colors.jpg"
               className="img-thumbnail mt-n2"
-              alt="Safer Baby Mask"
+              alt="Colors Icon"
             />
           </div>
 
           <div className="col-12">
-            <div className=" text-center">
+            <div className="text-center">
               <label className="form-label">Pantone Preferred</label>
             </div>
-
             <div className="row">
               <div className="col-4">
                 <input
-                  type="color"
-                  className="form-control form-control-color"
                   id="pantone1"
-                  value=""
+                  type="text"
+                  className="form-control"
+                  placeholder="PMS"
                 />
               </div>
-
               <div className="col-4">
                 <input
-                  type="color"
-                  className="form-control form-control-color"
                   id="pantone2"
-                  value=""
+                  type="text"
+                  className="form-control"
+                  placeholder="PMS"
                 />
               </div>
-
               <div className="col-4">
                 <input
-                  type="color"
-                  className="form-control form-control-color"
                   id="pantone3"
-                  value=""
+                  type="text"
+                  className="form-control"
+                  placeholder="PMS"
                 />
               </div>
             </div>
-
-            <div className=" text-center">
+            <div className="text-center">
               <label className="form-label">Click to Select Color</label>
             </div>
-
             <div className="row">
               <div className="col-4">
                 <input
                   type="color"
                   className="form-control form-control-color"
                   id="otherColor1"
-                  value=""
                 />
               </div>
-
               <div className="col-4">
                 <input
                   type="color"
                   className="form-control form-control-color"
                   id="otherColor2"
-                  value=""
                 />
               </div>
-
               <div className="col-4">
                 <input
                   type="color"
                   className="form-control form-control-color"
                   id="otherColor3"
-                  value=""
                 />
               </div>
             </div>
-
             <div className="row">
               <div className="col-12 py-2">
                 <div className="form-check">
@@ -190,7 +179,6 @@ export default function CreatePositionColors() {
                   </label>
                 </div>
               </div>
-
               <div className="col-12">
                 <textarea
                   type="text"

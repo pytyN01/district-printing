@@ -1,7 +1,7 @@
 export default function CreateArrivalPaymentShip() {
   return (
-    <div className="row mt-n3 mb-3">
-      <div className="col-sm-12">
+    <div className="row mb-3">
+      <div className="col-12">
         <div className="row">
           <div className="col-3">
             <img
@@ -11,38 +11,37 @@ export default function CreateArrivalPaymentShip() {
               }}
               src="/icon-arrival.jpg"
               className="img-thumbnail mt-n2"
-              alt="Safer Baby Mask"
+              alt="Arrival Icon"
             />
           </div>
 
           <div className="col-4">
             <div className="dropdown">
               <button
-                style={{ paddingLeft: "5.1vw", paddingRight: "5.1vw" }}
+                style={{ paddingLeft: "4.3vw", paddingRight: "4.3vw" }}
                 className="btn btn-outline-secondary dropdown-toggle"
                 type="button"
                 id="dropdownArrival"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                7 - 10 Days
+                Est. Arrival Time
               </button>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something here
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something here
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something here
-                  </a>
-                </li>
+              <ul
+                className="dropdown-menu"
+                style={{ height: "180px", overflowY: "auto" }}
+              >
+                {[
+                  "7-10 Days",
+                  "5 Business Days",
+                  "3 Days",
+                  "Next Day",
+                  "Custom",
+                ].map((name) => (
+                  <li>
+                    <p className="dropdown-item">{name}</p>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -50,35 +49,7 @@ export default function CreateArrivalPaymentShip() {
           <div className="col-4">
             <div className="row">
               <div className="col-12">
-                <div className="dropdown">
-                  <button
-                    style={{ paddingLeft: "4.3vw", paddingRight: "4.3vw" }}
-                    className="btn btn-outline-secondary dropdown-toggle"
-                    type="button"
-                    id="dropdownArrivalDate"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Est. Arrival Date
-                  </button>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Something here
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Something here
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Something here
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                <input type="date" class="form-control" id="arrivalDate" />
               </div>
               <div className="col-12">
                 <div className="form-check my-2">
@@ -97,8 +68,7 @@ export default function CreateArrivalPaymentShip() {
           </div>
         </div>
       </div>
-
-      <div className="col-sm-12  pt-3">
+      <div className="col-12">
         <div className="row">
           <div className="col-3">
             <img
@@ -108,7 +78,7 @@ export default function CreateArrivalPaymentShip() {
               }}
               src="/icon-payment.jpg"
               className="img-thumbnail mt-n2"
-              alt="Safer Baby Mask"
+              alt="Payment Icon"
             />
           </div>
 
@@ -123,11 +93,13 @@ export default function CreateArrivalPaymentShip() {
           <div className="col-4">
             <div className="row">
               <div className="col-12">
-                <input
+                <textarea
+                  rows="1"
+                  class="form-control"
                   placeholder="Notes"
                   type="text"
-                  className="form-control"
-                />
+                  id="paymentNotes"
+                ></textarea>
               </div>
               <div className="col-12">
                 <div className="form-check my-2">
@@ -146,8 +118,7 @@ export default function CreateArrivalPaymentShip() {
           </div>
         </div>
       </div>
-
-      <div className="col-sm-12 pt-3">
+      <div className="col-12">
         <div className="row">
           <div className="col-12 mb-3">
             <img
@@ -157,7 +128,7 @@ export default function CreateArrivalPaymentShip() {
               }}
               src="/icon-ship.jpg"
               className="img-thumbnail mt-n2"
-              alt="Safer Baby Mask"
+              alt="Shipment Icon"
             />
           </div>
           <div className="col-12 mb-3">
@@ -210,21 +181,21 @@ export default function CreateArrivalPaymentShip() {
                 <div className="row mb-2">
                   <div className="col-6">
                     <input
-                      type="text"
+                      type="email"
                       className="form-control"
                       placeholder="Email"
                     />
                   </div>
                   <div className="col-6">
                     <input
-                      type="text"
+                      type="tel"
                       className="form-control"
                       placeholder="Phone"
                     />
                   </div>
                 </div>
               </div>
-              <div className="col-6 mt-n4">
+              <div className="col-6 mt-n5">
                 <div className="row mb-2">
                   <div className="col-2">
                     <div className="form-check">
@@ -256,19 +227,16 @@ export default function CreateArrivalPaymentShip() {
                       </button>
                       <ul className="dropdown-menu">
                         <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
+                          <p className="dropdown-item">FedEx</p>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
+                          <p className="dropdown-item">USPS - US Postal</p>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
+                          <p className="dropdown-item">UPS</p>
+                        </li>
+                        <li>
+                          <p className="dropdown-item">DHL</p>
                         </li>
                       </ul>
                     </div>
@@ -284,11 +252,13 @@ export default function CreateArrivalPaymentShip() {
                     />
                   </div>
                   <div className="col-12 mb-2">
-                    <input
-                      type="text"
-                      className="form-control"
+                    <textarea
+                      rows="1"
+                      class="form-control"
                       placeholder="Notes"
-                    />
+                      type="text"
+                      id="shippingNotes"
+                    ></textarea>
                   </div>
                 </div>
 

@@ -11,7 +11,6 @@ export default function DropZone() {
     [myFiles]
   );
 
-  //   acceptedFiles,
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
   });
@@ -30,10 +29,10 @@ export default function DropZone() {
           <button
             onClick={removeFile(file)}
             type="button"
-            className="btn btn-outline-light ml-1"
+            className="btn btn-outline-light ml-2"
             aria-label="Close"
           >
-            ❌
+            <i className="fas fa-times"></i>
           </button>
         </span>
       </div>
@@ -44,20 +43,18 @@ export default function DropZone() {
     <section className="container">
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
-        <div className="mb-3" />
-        <img
-          style={{
-            width: "110%",
-            minWidth: "110%",
-          }}
-          src="/icon-drag.jpg"
-          className="img-thumbnail ml-n3"
-          alt="Safer Baby Mask"
-        />
+        <div className="mb-2" />
+        <div className="dropContainer">
+          <img
+            src="/icon-drag.jpg"
+            className="img-thumbnail dropIMG ml-n3"
+            alt="Proof Drag"
+          />
+        </div>
       </div>
-      <aside>
+      <div className="dropText">
         <ul>{files}</ul>
-      </aside>
+      </div>
     </section>
   );
 }

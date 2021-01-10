@@ -9,7 +9,7 @@ export default function THead({ user }) {
             <h4>ID #</h4>
           </th>
           <th className="align-top">
-            <h4>Job Name</h4>
+            <h4 className="text-nowrap">Job Name</h4>
           </th>
           <th className="align-top">
             <h4>Invoice #</h4>
@@ -21,17 +21,17 @@ export default function THead({ user }) {
           )}
           {user === "Andrew" && (
             <th className="align-top">
-              <h4>Customer Name</h4>
+              <h4 className="text-nowrap">Customer Name</h4>
             </th>
           )}
           {user === "Andrew" && (
             <th className="align-top">
-              <h4>Created Date</h4>
+              <h4 className="text-nowrap">Created Date</h4>
             </th>
           )}
           {user === "Andrew" ? (
             <th className="align-top">
-              <h4>Arrival Date</h4>
+              <h4 className="text-nowrap">Arrival Date</h4>
             </th>
           ) : (
             <th className="align-top">
@@ -43,7 +43,7 @@ export default function THead({ user }) {
           </th>
           {user === "Andrew" ? (
             <th className="align-top">
-              <h4>Printer Name</h4>
+              <h4 className="text-nowrap">Printer Name</h4>
             </th>
           ) : (
             <th className="align-top">
@@ -52,14 +52,14 @@ export default function THead({ user }) {
           )}
           {user === "Andrew" && (
             <th className="align-top">
-              <h4>Assign Printer</h4>
+              <h4 className="text-nowrap">Assign Printer</h4>
             </th>
           )}
           <th className="align-top">
             <h4>Art</h4>
           </th>
           <th className="align-top">
-            <h4>Packing/Shipping Status</h4>
+            <h4>Packing/Shipping</h4>
           </th>
           <th className="align-top">
             <h4>Options</h4>

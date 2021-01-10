@@ -148,3 +148,23 @@ a {
 .carousel-indicators li {
   background-color: black !important;
 }
+
+.dropContainer {
+  position: relative;
+}
+
+.dropIMG {
+  width: 107%;
+  min-width: 107%;
+}
+
+.dropText {
+  color: white;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 24px;
+  padding-right: 20px;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}

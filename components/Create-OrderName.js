@@ -1,4 +1,5 @@
 export default function CreateName() {
+  const customers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   return (
     <div className="row mb-3">
       <div className="col-2">
@@ -9,13 +10,14 @@ export default function CreateName() {
           }}
           src="/icon-job.jpg"
           className="img-thumbnail"
-          alt="Safer Baby Mask"
+          alt="Job Icon"
         />
       </div>
-      <div className="col-2">
-        <div className="btn-group ml-n4" role="group">
+      <div className="col-3">
+        <div className="btn-group ml-n2" role="group">
           <button
-            id="btnGroupDrop1"
+            style={{ paddingLeft: "1.8vw", paddingRight: "1.8vw" }}
+            id="customerDropdown"
             type="button"
             className="btn btn-outline-secondary dropdown-toggle"
             data-bs-toggle="dropdown"
@@ -24,25 +26,15 @@ export default function CreateName() {
             Customer Name
           </button>
           <ul className="dropdown-menu">
-            <li>
-              <a className="dropdown-item" href="#">
-                Something Here
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something Here
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something Here
-              </a>
-            </li>
+            {customers.map((customer, index) => (
+              <li key={index}>
+                <p className="dropdown-item">Customer {customer}</p>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
-      <div className="col-6">
+      <div className="col-5">
         <input
           type="text"
           className="form-control"

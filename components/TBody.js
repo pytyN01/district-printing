@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonOptions from "./ButtonOptions";
+import ButtonPDF from "./ButtonPDF";
 
 export default function TBody({ user, data }) {
   const [save, setSave] = React.useState(false);
@@ -7,19 +8,19 @@ export default function TBody({ user, data }) {
     <React.Fragment>
       {data.map((item) => (
         <tr key={item.id}>
-          <td>
+          <td className="text-center">
             <label className="form-check-label">
-              <h4>{item.invoice}</h4>
+              <h4>{item.id}</h4>
             </label>
             <input
-              className="ml-2"
+              style={{ transform: "scale(3)" }}
               type="checkbox"
               value=""
               id="invoiceCheck"
             />
           </td>
           <td>
-            <h4>{item.jobName}</h4>
+            <h4 className="text-nowrap">{item.orderName}</h4>
             <br />
             <small className="text-secondary">
               <a className="text-reset text-decoration-none" href="#">
@@ -47,9 +48,10 @@ export default function TBody({ user, data }) {
             </div>
           </td>
           {user === "Andrew" && (
-            <td>
-              <div className="form-check">
+            <td className=" text-center">
+              <div className="form-check mt-3">
                 <input
+                  style={{ transform: "scale(3)" }}
                   className="form-check-input"
                   type="checkbox"
                   value={item.apparel}
@@ -60,9 +62,9 @@ export default function TBody({ user, data }) {
           )}
           {user === "Andrew" && (
             <td>
-              <h4>{item.customer.name}</h4>
+              <h4>{item.customerName}</h4>
               <br />
-              <small className="text-secondary">{item.customer.comment}</small>
+              <small className="text-secondary">{`Agent - ${item.customerAgent}`}</small>
             </td>
           )}
           {user === "Andrew" && (
@@ -74,13 +76,13 @@ export default function TBody({ user, data }) {
             <h4>{item.arrival}</h4>
           </td>
           <td>
-            <h4>{item.status.status}</h4> <br />
-            <small className="text-secondary">{item.status.comment}</small>
+            <h4 className="text-nowrap">{item.status}</h4> <br />
+            <small className="text-secondary">{item.statusEditor}</small>
           </td>
           <td>
-            <h4>{item.printer.name}</h4>
+            <h4>{item.printer}</h4>
             <br />
-            <small className="text-secondary">{item.printer.comment}</small>
+            <small className="text-secondary">{item.printerComment}</small>
           </td>
           {user === "Andrew" && (
             <td>
@@ -97,10 +99,8 @@ export default function TBody({ user, data }) {
               <img
                 key={index}
                 style={{
-                  height: "70px",
-                  minHeight: "70px",
-                  width: "70px",
-                  minWidth: "70px",
+                  width: "90px",
+                  minWidth: "90px",
                 }}
                 src={image}
                 className="img-thumbnail"
@@ -109,7 +109,7 @@ export default function TBody({ user, data }) {
             ))}
           </td>
           <td>
-            <h4>{item.shipping}</h4>
+            <ButtonPDF />
             <br />
             <small className="text-secondary">
               <a className="text-reset text-decoration-none" href="#">

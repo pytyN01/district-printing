@@ -3,8 +3,8 @@ import ProofDrop from "./Proof";
 
 export default function CreateProofArt() {
   return (
-    <div className="row mb-2">
-      <div className="col-sm-6">
+    <div className="row mb-3">
+      <div className="col-6">
         <div className="row">
           <div className="col-12">
             <img
@@ -14,21 +14,20 @@ export default function CreateProofArt() {
               }}
               src="/icon-proof.jpg"
               className="img-thumbnail mt-n2"
-              alt="Safer Baby Mask"
+              alt="Proof Icon"
             />
           </div>
         </div>
-
         <div className="row">
-          <div className="col-sm-12">
+          <div className="col-12">
             <ProofDrop />
           </div>
         </div>
       </div>
 
-      <div className="col-sm-6">
+      <div className="col-6">
         <div className="row">
-          <div className="col-4">
+          <div className="col-3">
             <img
               style={{
                 height: "40px",
@@ -36,30 +35,49 @@ export default function CreateProofArt() {
               }}
               src="/icon-art.jpg"
               className="img-thumbnail mt-n2"
-              alt="Safer Baby Mask"
+              alt="Art Icon"
             />
           </div>
-
-          <div className="col-8">
-            <div className="row mt-n2">
-              <label htmlFor="uploadLink" className="col-sm-1 col-form-label">
-                🔗
-              </label>
-              <div className="col-sm-10">
+          <div className="col-5 ml-n4 mt-n2">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="🔗  ie, box, drive"
+              id="uploadLink"
+            />
+          </div>
+          <div className="col-4">
+            <div className="row">
+              <div className="col-1">
                 <input
-                  type="text"
-                  className="form-control"
-                  placeholder="ie, box, drive"
-                  id="uploadLink"
+                  className="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="matchCheck"
                 />
               </div>
+              <label
+                htmlFor="matchCheck"
+                className="col-11 mt-n2 col-form-label text-nowrap"
+              >
+                Not sized/Match Proof
+              </label>
             </div>
           </div>
         </div>
-
         <div className="row">
-          <div className="col-sm-12">
+          <div className="col-12">
             <ArtDrop />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12">
+            <textarea
+              placeholder="Notes"
+              className="form-control mt-2"
+              id="artNotes"
+              rows="1"
+            ></textarea>
           </div>
         </div>
       </div>

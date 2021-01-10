@@ -16,12 +16,12 @@ export default function DashboardHome({ products }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Dashboard />
+      <Dashboard data={products} />
     </>
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const { db } = await connectToDatabase();
 
   const data = await db
@@ -33,7 +33,21 @@ export async function getServerSideProps(context) {
 
   const products = data.map((product) => {
     return {
+      id: product.itemIdNumber,
       invoice: product.invoiceNumber,
+      orderName: product.orderName,
+      customerName: product.customerName,
+      customerAgent: product.customerAgent,
+      apparel: product.apparel,
+      created: product.createdDate,
+      arrival: product.arrivalDate,
+      status: product.status,
+      statusEditor: product.statusEditor,
+      printer: product.printer,
+      printerComment: product.printerComment,
+      art: product.art.images,
+      shippingLabel: product.shipment.shippingLabel,
+      packingList: product.shipment.packingList,
     };
   });
 

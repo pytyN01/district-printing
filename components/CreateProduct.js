@@ -1,7 +1,7 @@
 export default function CreateProduct() {
   return (
-    <div className="mb-3 row">
-      <div className="col-sm-12 px-3">
+    <div className="row mb-3">
+      <div className="col-12 px-3">
         <img
           style={{
             height: "50px",
@@ -9,11 +9,11 @@ export default function CreateProduct() {
           }}
           src="/icon-product.jpg"
           className="img-thumbnail mt-n2"
-          alt="Safer Baby Mask"
+          alt="Product Icon"
         />
       </div>
 
-      <div className="col-sm-12 px-3 mt-3">
+      <div className="col-12 px-3 mt-3">
         <div
           id="carouselExampleIndicators"
           className="carousel slide"
@@ -21,36 +21,26 @@ export default function CreateProduct() {
           data-bs-interval="false"
         >
           <ol className="carousel-indicators">
-            <li
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="0"
-              className="active"
-            ></li>
-            <li
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="1"
-            ></li>
-            <li
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="2"
-            ></li>
-            <li
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="3"
-            ></li>
-            <li
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="4"
-            ></li>
+            {[0, 1, 2, 3, 4].map((num) => (
+              <li
+                key={num}
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to={num}
+                className={num === 0 ? "active" : ""}
+              ></li>
+            ))}
           </ol>
           <div className="carousel-inner">
-            <div className="carousel-item active">
-              <div className="d-block w-100">
+            {[1, 2, 3, 4, 5].map((num) => (
+              <div
+                key={num}
+                className={num === 1 ? "carousel-item active" : "carousel-item"}
+              >
                 <div className="row">
                   <div className="col-2 mb-2">
-                    <h5>Product 1</h5>
+                    <h5>Product {num}</h5>
                   </div>
-                  <div className="col-4 mb-2 ml-n4">
+                  <div className="col-4 mb-2 ml-n5">
                     <div className="row">
                       <div className="col-3">
                         <div className="form-check">
@@ -58,11 +48,11 @@ export default function CreateProduct() {
                             className="form-check-input"
                             type="checkbox"
                             value=""
-                            id="menCheckbox"
+                            id={`menCheckbox${num}`}
                           />
                           <label
                             className="form-check-label"
-                            htmlFor="menCheckbox"
+                            htmlFor={`menCheckbox${num}`}
                           >
                             Men
                           </label>
@@ -74,11 +64,11 @@ export default function CreateProduct() {
                             className="form-check-input"
                             type="checkbox"
                             value=""
-                            id="womanCheckbox"
+                            id={`womenCheckbox${num}`}
                           />
                           <label
                             className="form-check-label"
-                            htmlFor="womanCheckbox"
+                            htmlFor={`womenCheckbox${num}`}
                           >
                             Woman
                           </label>
@@ -90,11 +80,11 @@ export default function CreateProduct() {
                             className="form-check-input"
                             type="checkbox"
                             value=""
-                            id="youthCheckbox"
+                            id={`youthCheckbox${num}`}
                           />
                           <label
                             className="form-check-label"
-                            htmlFor="youthCheckbox"
+                            htmlFor={`youthCheckbox${num}`}
                           >
                             Youth
                           </label>
@@ -106,11 +96,11 @@ export default function CreateProduct() {
                             className="form-check-input"
                             type="checkbox"
                             value=""
-                            id="otherCheckbox"
+                            id={`otherCheckbox${num}`}
                           />
                           <label
                             className="form-check-label"
-                            htmlFor="otherCheckbox"
+                            htmlFor={`otherCheckbox${num}`}
                           >
                             Other
                           </label>
@@ -120,19 +110,19 @@ export default function CreateProduct() {
                   </div>
                   <div className="col-5 mb-2">
                     <div className="row">
-                      <div className="col-sm-5 px-1">
+                      <div className="col-5 px-1">
                         <input
                           type="text"
                           className="form-control"
-                          id="otherProductOne"
+                          id={`otherProduct${num}`}
                           placeholder="Other Name"
                         />
                       </div>
-                      <div className="col-sm-6 px-1">
+                      <div className="col-6 px-1">
                         <input
                           type="text"
                           className="form-control"
-                          id="PPP1"
+                          id={`PPP${num}`}
                           placeholder="Price Per Piece"
                         />
                       </div>
@@ -144,57 +134,58 @@ export default function CreateProduct() {
                         className="form-check-input"
                         type="checkbox"
                         value=""
-                        id="textCheckbox"
+                        id={`taxCheckbox${num}`}
                       />
                       <label
                         className="form-check-label"
-                        htmlFor="textCheckbox"
+                        htmlFor={`taxCheckbox${num}`}
                       >
-                        Text?
+                        Tax?
                       </label>
                     </div>
                   </div>
                 </div>
 
                 <div className="row">
-                  <div className="col-sm-2 mb-2 pr-1">
+                  <div className="col-2 mb-2 pr-1">
                     <input
                       type="text"
                       className="form-control"
-                      id="Item#"
+                      id={`item${num}`}
                       placeholder="Item #"
                     />
                   </div>
-                  <div className="col-sm-2 mb-2 px-1">
+                  <div className="col-2 mb-2 px-1">
                     <input
                       type="text"
                       className="form-control"
-                      id="Zip"
-                      placeholder="Tee, Pullover, Zip?"
+                      id={`teeType${num}`}
+                      placeholder="Tee, Pullover, Zipper?"
                     />
                   </div>
-                  <div className="col-sm-2 mb-2 px-1">
+                  <div className="col-2 mb-2 px-1">
                     <input
                       type="text"
                       className="form-control"
-                      id="Color"
+                      id={`color${num}`}
                       placeholder="Color"
                     />
                   </div>
-                  <div className="col-sm-3 mb-2 px-1">
+                  <div className="col-3 mb-2 px-1">
                     <input
                       type="text"
                       className="form-control"
-                      id="AddDesc"
+                      id={`addDesc${num}`}
                       placeholder="Additional Description"
                     />
                   </div>
-                  <div className="col-sm-3 mb-2 pl-1">
+                  <div className="col-3 mb-2 pl-1">
                     <div className="dropdown">
                       <button
+                        style={{ paddingLeft: "2.6vw", paddingRight: "2.6vw" }}
                         className="btn btn-outline-secondary dropdown-toggle"
                         type="button"
-                        id="dropdownMenuButton"
+                        id={`apparelDropdown${num}`}
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
@@ -202,139 +193,148 @@ export default function CreateProduct() {
                       </button>
                       <ul
                         className="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton"
+                        style={{
+                          height: "140px",
+                          overflowY: "auto",
+                        }}
                       >
                         <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
+                          <p className="dropdown-item">S&S Activewear</p>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
+                          <p className="dropdown-item">SanMar</p>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
+                          <p className="dropdown-item">Pagoda</p>
+                        </li>
+                        <li>
+                          <p className="dropdown-item">Client Provide</p>
+                        </li>
+                        <li>
+                          <p className="dropdown-item">Tans Club</p>
+                        </li>
+                        <li>
+                          <p className="dropdown-item">Amazon</p>
+                        </li>
+                        <li>
+                          <p className="dropdown-item">Other</p>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
 
-                <div className="row">
-                  <div className="col-12 mb-2 pl-2">
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XS
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      S
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      M
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      L
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XL
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XXL
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XXXL
-                    </button>
+                <div className="row mb-2">
+                  <div className="col">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id={`size-xs${num}`}
+                      placeholder="XS #"
+                    />
+                  </div>
+                  <div className="col">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id={`size-s${num}`}
+                      placeholder="S #"
+                    />
+                  </div>
+                  <div className="col">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id={`size-m${num}`}
+                      placeholder="M #"
+                    />
+                  </div>
+                  <div className="col">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id={`size-l${num}`}
+                      placeholder="L #"
+                    />
+                  </div>
+                  <div className="col">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id={`size-xl${num}`}
+                      placeholder="XL #"
+                    />
+                  </div>
+                  <div className="col">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id={`size-xxl${num}`}
+                      placeholder="XXL #"
+                    />
+                  </div>
+                  <div className="col">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id={`size-xxxl${num}`}
+                      placeholder="XXXL #"
+                    />
                   </div>
                 </div>
 
                 <div className="row mb-5">
-                  <div className="col-sm-3 mb-2 pr-1">
+                  <div className="col">
                     <div className="row">
                       <div className="col-5">
-                        <div className="dropdown">
+                        <div className="btn-group dropup">
                           <button
                             className="btn btn-outline-secondary dropdown-toggle"
                             type="button"
-                            id="otherOne"
+                            id={`otherDropdownOne${num}`}
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                           >
                             Other
                           </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
+                          <ul
+                            className="dropdown-menu"
+                            style={{
+                              height: "136px",
+                              overflowY: "auto",
+                            }}
+                          >
+                            {[
+                              "OS",
+                              "NB",
+                              "6M",
+                              "12M",
+                              "18M",
+                              "24M",
+                              "2T",
+                              "3T",
+                              "5T",
+                              "6T",
+                              "YXS",
+                              "YS",
+                              "YM",
+                              "YL",
+                              "YXL",
+                              "YXXL",
+                              "YXXXL",
+                              "XXS",
+                              "3XL",
+                              "4XL",
+                              "5XL",
+                              "6XL",
+                              "S/M",
+                              "M/L",
+                              "L/XL",
+                            ].map((size, index) => (
+                              <li key={index}>
+                                <p className="dropdown-item">{size}</p>
+                              </li>
+                            ))}
                           </ul>
                         </div>
                       </div>
@@ -342,41 +342,63 @@ export default function CreateProduct() {
                         <input
                           type="text"
                           className="form-control"
-                          id="otherInputOne1"
+                          id={`otherInputOne${num}`}
                           placeholder="PCS"
                         />
                       </div>
                     </div>
                   </div>
-                  <div className="col-sm-3 mb-2 px-1 ml-n2">
+                  <div className="col">
                     <div className="row">
                       <div className="col-5">
-                        <div className="dropdown">
+                        <div className="btn-group dropup">
                           <button
                             className="btn btn-outline-secondary dropdown-toggle"
                             type="button"
-                            id="otherTwo"
+                            id={`otherDropdownTwo${num}`}
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                           >
                             Other
                           </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
+                          <ul
+                            className="dropdown-menu"
+                            style={{
+                              height: "136px",
+                              overflowY: "auto",
+                            }}
+                          >
+                            {[
+                              "OS",
+                              "NB",
+                              "6M",
+                              "12M",
+                              "18M",
+                              "24M",
+                              "2T",
+                              "3T",
+                              "5T",
+                              "6T",
+                              "YXS",
+                              "YS",
+                              "YM",
+                              "YL",
+                              "YXL",
+                              "YXXL",
+                              "YXXXL",
+                              "XXS",
+                              "3XL",
+                              "4XL",
+                              "5XL",
+                              "6XL",
+                              "S/M",
+                              "M/L",
+                              "L/XL",
+                            ].map((size, index) => (
+                              <li key={index}>
+                                <p className="dropdown-item">{size}</p>
+                              </li>
+                            ))}
                           </ul>
                         </div>
                       </div>
@@ -384,41 +406,63 @@ export default function CreateProduct() {
                         <input
                           type="text"
                           className="form-control"
-                          id="otherInputTwo1"
+                          id={`otherInputTwo${num}`}
                           placeholder="PCS"
                         />
                       </div>
                     </div>
                   </div>
-                  <div className="col-sm-3 mb-2 px-1 ml-n2">
+                  <div className="col">
                     <div className="row">
                       <div className="col-5">
-                        <div className="dropdown">
+                        <div className="btn-group dropup">
                           <button
                             className="btn btn-outline-secondary dropdown-toggle"
                             type="button"
-                            id="otherThree"
+                            id={`otherDropdownThree${num}`}
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                           >
                             Other
                           </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
+                          <ul
+                            className="dropdown-menu"
+                            style={{
+                              height: "136px",
+                              overflowY: "auto",
+                            }}
+                          >
+                            {[
+                              "OS",
+                              "NB",
+                              "6M",
+                              "12M",
+                              "18M",
+                              "24M",
+                              "2T",
+                              "3T",
+                              "5T",
+                              "6T",
+                              "YXS",
+                              "YS",
+                              "YM",
+                              "YL",
+                              "YXL",
+                              "YXXL",
+                              "YXXXL",
+                              "XXS",
+                              "3XL",
+                              "4XL",
+                              "5XL",
+                              "6XL",
+                              "S/M",
+                              "M/L",
+                              "L/XL",
+                            ].map((size, index) => (
+                              <li key={index}>
+                                <p className="dropdown-item">{size}</p>
+                              </li>
+                            ))}
                           </ul>
                         </div>
                       </div>
@@ -426,41 +470,63 @@ export default function CreateProduct() {
                         <input
                           type="text"
                           className="form-control"
-                          id="otherInputThree1"
+                          id={`otherInputThree${num}`}
                           placeholder="PCS"
                         />
                       </div>
                     </div>
                   </div>
-                  <div className="col-sm-3 mb-2 pl-1 ml-n3">
+                  <div className="col">
                     <div className="row">
                       <div className="col-5">
-                        <div className="dropdown">
+                        <div className="btn-group dropup">
                           <button
                             className="btn btn-outline-secondary dropdown-toggle"
                             type="button"
-                            id="otherFour"
+                            id={`otherDropdownFour${num}`}
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                           >
                             Other
                           </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
+                          <ul
+                            className="dropdown-menu"
+                            style={{
+                              height: "136px",
+                              overflowY: "auto",
+                            }}
+                          >
+                            {[
+                              "OS",
+                              "NB",
+                              "6M",
+                              "12M",
+                              "18M",
+                              "24M",
+                              "2T",
+                              "3T",
+                              "5T",
+                              "6T",
+                              "YXS",
+                              "YS",
+                              "YM",
+                              "YL",
+                              "YXL",
+                              "YXXL",
+                              "YXXXL",
+                              "XXS",
+                              "3XL",
+                              "4XL",
+                              "5XL",
+                              "6XL",
+                              "S/M",
+                              "M/L",
+                              "L/XL",
+                            ].map((size, index) => (
+                              <li key={index}>
+                                <p className="dropdown-item">{size}</p>
+                              </li>
+                            ))}
                           </ul>
                         </div>
                       </div>
@@ -468,7 +534,7 @@ export default function CreateProduct() {
                         <input
                           type="text"
                           className="form-control"
-                          id="otherInputFour1"
+                          id={`otherInputFour${num}`}
                           placeholder="PCS"
                         />
                       </div>
@@ -476,1740 +542,7 @@ export default function CreateProduct() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="carousel-item">
-              <div className="d-block w-100">
-                <div className="row">
-                  <div className="col-sm-2 mb-2">
-                    <h5>Product 2</h5>
-                  </div>
-                  <div className="col-sm-4 mb-2 ml-n4">
-                    <div className="row">
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="menCheckbox2"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="menCheckbox2"
-                          >
-                            Men
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="womanCheckbox2"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="womanCheckbox2"
-                          >
-                            Woman
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="youthCheckbox2"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="youthCheckbox2"
-                          >
-                            Youth
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="otherCheckbox2"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="otherCheckbox2"
-                          >
-                            Other
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-5 mb-2">
-                    <div className="row">
-                      <div className="col-sm-5 px-1">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherProductOne2"
-                          placeholder="Other Name"
-                        />
-                      </div>
-                      <div className="col-sm-6 px-1">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="PPP2"
-                          placeholder="Price Per Piece"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-1 mb-2">
-                    <div className="form-check ml-n3">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="textCheckbox2"
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor="textCheckbox2"
-                      >
-                        Text?
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-sm-2 mb-2 pr-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Item#2"
-                      placeholder="Item #"
-                    />
-                  </div>
-                  <div className="col-sm-2 mb-2 px-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Zip2"
-                      placeholder="Tee, Pullover, Zip?"
-                    />
-                  </div>
-                  <div className="col-sm-2 mb-2 px-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Color2"
-                      placeholder="Color"
-                    />
-                  </div>
-                  <div className="col-sm-3 mb-2 px-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="AddDesc2"
-                      placeholder="Additional Description"
-                    />
-                  </div>
-                  <div className="col-sm-3 mb-2 pl-1">
-                    <div className="dropdown">
-                      <button
-                        className="btn btn-outline-secondary dropdown-toggle"
-                        type="button"
-                        id="dropdownMenuButton"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        Apparel Source
-                      </button>
-                      <ul
-                        className="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-12 mb-2 pl-2">
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XS
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      S
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      M
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      L
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XL
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XXL
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XXXL
-                    </button>
-                  </div>
-                </div>
-
-                <div className="row mb-5">
-                  <div className="col-sm-3 mb-2 pr-1">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherOne"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputOne2"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-3 mb-2 px-1 ml-n2">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherTwo"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputTwo2"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-3 mb-2 px-1 ml-n2">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherThree"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputThree2"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-3 mb-2 pl-1 ml-n3">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherFour"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputFour2"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="d-block w-100">
-                <div className="row">
-                  <div className="col-sm-2 mb-2">
-                    <h5>Product 3</h5>
-                  </div>
-                  <div className="col-sm-4 mb-2 ml-n4">
-                    <div className="row">
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="menCheckbox3"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="menCheckbox3"
-                          >
-                            Men
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="womanCheckbox3"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="womanCheckbox3"
-                          >
-                            Woman
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="youthCheckbox3"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="youthCheckbox3"
-                          >
-                            Youth
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="otherCheckbox3"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="otherCheckbox3"
-                          >
-                            Other
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-5 mb-2">
-                    <div className="row">
-                      <div className="col-sm-5 px-1">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherProductOne3"
-                          placeholder="Other Name"
-                        />
-                      </div>
-                      <div className="col-sm-6 px-1">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="PPP3"
-                          placeholder="Price Per Piece"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-1 mb-2">
-                    <div className="form-check ml-n3">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="textCheckbox3"
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor="textCheckbox3"
-                      >
-                        Text?
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-sm-2 mb-2 pr-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Item#3"
-                      placeholder="Item #"
-                    />
-                  </div>
-                  <div className="col-sm-2 mb-2 px-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Zip3"
-                      placeholder="Tee, Pullover, Zip?"
-                    />
-                  </div>
-                  <div className="col-sm-2 mb-2 px-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Color#"
-                      placeholder="Color"
-                    />
-                  </div>
-                  <div className="col-sm-3 mb-2 px-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="AddDesc3"
-                      placeholder="Additional Description"
-                    />
-                  </div>
-                  <div className="col-sm-3 mb-2 pl-1">
-                    <div className="dropdown">
-                      <button
-                        className="btn btn-outline-secondary dropdown-toggle"
-                        type="button"
-                        id="dropdownMenuButton"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        Apparel Source
-                      </button>
-                      <ul
-                        className="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-12 mb-2 pl-2">
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XS
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      S
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      M
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      L
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XL
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XXL
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XXXL
-                    </button>
-                  </div>
-                </div>
-
-                <div className="row mb-5">
-                  <div className="col-sm-3 mb-2 pr-1">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherOne"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputOne3"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-3 mb-2 px-1 ml-n2">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherTwo"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputTwo3"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-3 mb-2 px-1 ml-n2">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherThree"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputThree3"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-3 mb-2 pl-1 ml-n3">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherFour"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputFour3"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="d-block w-100">
-                <div className="row">
-                  <div className="col-sm-2 mb-2">
-                    <h5>Product 4</h5>
-                  </div>
-                  <div className="col-sm-4 mb-2 ml-n4">
-                    <div className="row">
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="menCheckbox4"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="menCheckbox4"
-                          >
-                            Men
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="womanCheckbox4"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="womanCheckbox4"
-                          >
-                            Woman
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="youthCheckbox4"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="youthCheckbox4"
-                          >
-                            Youth
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="otherCheckbox4"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="otherCheckbox4"
-                          >
-                            Other
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-5 mb-2">
-                    <div className="row">
-                      <div className="col-sm-5 px-1">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherProductOne4"
-                          placeholder="Other Name"
-                        />
-                      </div>
-                      <div className="col-sm-6 px-1">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="PPP4"
-                          placeholder="Price Per Piece"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-1 mb-2">
-                    <div className="form-check ml-n3">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="textCheckbox4"
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor="textCheckbox4"
-                      >
-                        Text?
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-sm-2 mb-2 pr-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Item#4"
-                      placeholder="Item #"
-                    />
-                  </div>
-                  <div className="col-sm-2 mb-2 px-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Zip4"
-                      placeholder="Tee, Pullover, Zip?"
-                    />
-                  </div>
-                  <div className="col-sm-2 mb-2 px-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Color4"
-                      placeholder="Color"
-                    />
-                  </div>
-                  <div className="col-sm-3 mb-2 px-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="AddDesc4"
-                      placeholder="Additional Description"
-                    />
-                  </div>
-                  <div className="col-sm-3 mb-2 pl-1">
-                    <div className="dropdown">
-                      <button
-                        className="btn btn-outline-secondary dropdown-toggle"
-                        type="button"
-                        id="dropdownMenuButton"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        Apparel Source
-                      </button>
-                      <ul
-                        className="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-12 mb-2 pl-2">
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XS
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      S
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      M
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      L
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XL
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XXL
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XXXL
-                    </button>
-                  </div>
-                </div>
-
-                <div className="row mb-5">
-                  <div className="col-sm-3 mb-2 pr-1">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherOne"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputOne4"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-3 mb-2 px-1 ml-n2">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherTwo"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputTwo4"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-3 mb-2 px-1 ml-n2">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherThree"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputThree4"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-3 mb-2 pl-1 ml-n3">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherFour"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputFour4"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="d-block w-100">
-                <div className="row">
-                  <div className="col-sm-2 mb-2">
-                    <h5>Product 5</h5>
-                  </div>
-                  <div className="col-sm-4 mb-2 ml-n4">
-                    <div className="row">
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="menCheckbox5"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="menCheckbox5"
-                          >
-                            Men
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="womanCheckbox5"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="womanCheckbox5"
-                          >
-                            Woman
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="youthCheckbox5"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="youthCheckbox5"
-                          >
-                            Youth
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-3">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="otherCheckbox5"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="otherCheckbox5"
-                          >
-                            Other
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-5 mb-2">
-                    <div className="row">
-                      <div className="col-sm-5 px-1">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherProductOne5"
-                          placeholder="Other"
-                        />
-                      </div>
-                      <div className="col-sm-6 px-1">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="PPP5"
-                          placeholder="Price Per Piece"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-1 mb-2">
-                    <div className="form-check ml-n3">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="textCheckbox5"
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor="textCheckbox5"
-                      >
-                        Text?
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-sm-2 mb-2 pr-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Item#5"
-                      placeholder="Item #"
-                    />
-                  </div>
-                  <div className="col-sm-2 mb-2 px-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Zip5"
-                      placeholder="Tee, Pullover, Zip?"
-                    />
-                  </div>
-                  <div className="col-sm-2 mb-2 px-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Color5"
-                      placeholder="Color"
-                    />
-                  </div>
-
-                  <div className="col-sm-3 mb-2 px-1">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="AddDesc5"
-                      placeholder="Additional Description"
-                    />
-                  </div>
-                  <div className="col-sm-3 mb-2 pl-1">
-                    <div className="dropdown">
-                      <button
-                        className="btn btn-outline-secondary dropdown-toggle"
-                        type="button"
-                        id="dropdownMenuButton"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        Apparel Source
-                      </button>
-                      <ul
-                        className="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Something here
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-12 mb-2 pl-2">
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XS
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      S
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      M
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      L
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XL
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XXL
-                    </button>
-
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary mx-2"
-                      style={{
-                        paddingLeft: "2.36vw",
-                        paddingRight: "2.36vw",
-                      }}
-                    >
-                      XXXL
-                    </button>
-                  </div>
-                </div>
-
-                <div className="row mb-5">
-                  <div className="col-sm-3 mb-2 pr-1">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherOne"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputOne5"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-3 mb-2 px-1 ml-n2">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherTwo"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputTwo5"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-3 mb-2 px-1 ml-n2">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherThree"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputThree5"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-3 mb-2 pl-1 ml-n3">
-                    <div className="row">
-                      <div className="col-5">
-                        <div className="dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            id="otherFour"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Other
-                          </button>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Something here
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="otherInputFour5"
-                          placeholder="PCS"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
