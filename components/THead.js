@@ -21,7 +21,7 @@ export default function THead({ user }) {
           )}
           {user === "Andrew" && (
             <th className="align-top">
-              <h4 className="text-nowrap">Customer Name</h4>
+              <h4 className="text-nowrap">Customer</h4>
             </th>
           )}
           {user === "Andrew" && (

@@ -12,6 +12,7 @@ export default function TBody({ user, data }) {
             <label className="form-check-label">
               <h4>{item.id}</h4>
             </label>
+            <br />
             <input
               style={{ transform: "scale(3)" }}
               type="checkbox"
@@ -21,17 +22,18 @@ export default function TBody({ user, data }) {
           </td>
           <td>
             <h4 className="text-nowrap">{item.orderName}</h4>
-            <br />
+            {/* <br />
             <small className="text-secondary">
               <a className="text-reset text-decoration-none" href="#">
                 - Add Comment
               </a>
-            </small>
+            </small> */}
           </td>
           <td>
             <div className="input-group p-1">
               <input
                 readOnly={save}
+                style={{ width: "100px" }}
                 className="form-control"
                 type="text"
                 id="invoiceNumberInput"
@@ -63,7 +65,6 @@ export default function TBody({ user, data }) {
           {user === "Andrew" && (
             <td>
               <h4>{item.customerName}</h4>
-              <br />
               <small className="text-secondary">{`Agent - ${item.customerAgent}`}</small>
             </td>
           )}
@@ -76,12 +77,11 @@ export default function TBody({ user, data }) {
             <h4>{item.arrival}</h4>
           </td>
           <td>
-            <h4 className="text-nowrap">{item.status}</h4> <br />
+            <h4 className="text-nowrap">{item.status}</h4>
             <small className="text-secondary">{item.statusEditor}</small>
           </td>
           <td>
             <h4>{item.printer}</h4>
-            <br />
             <small className="text-secondary">{item.printerComment}</small>
           </td>
           {user === "Andrew" && (
@@ -99,8 +99,8 @@ export default function TBody({ user, data }) {
               <img
                 key={index}
                 style={{
-                  width: "90px",
-                  minWidth: "90px",
+                  width: "80px",
+                  minWidth: "80px",
                 }}
                 src={image}
                 className="img-thumbnail"
@@ -110,12 +110,12 @@ export default function TBody({ user, data }) {
           </td>
           <td>
             <ButtonPDF />
-            <br />
+            {/* <br />
             <small className="text-secondary">
               <a className="text-reset text-decoration-none" href="#">
                 - Add Comment
               </a>
-            </small>
+            </small> */}
           </td>
           <td>
             <ButtonOptions user={user} />
