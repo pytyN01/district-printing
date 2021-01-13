@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../../util/mongodb";
+import { connectToDatabase } from "../../../util/mongodb";
 
 export default async (req, res) => {
   const { db } = await connectToDatabase();
@@ -10,7 +10,7 @@ export default async (req, res) => {
         $search: {
           search: {
             query: term,
-            path: ["orderName", "customerName"],
+            path: ["orderName", "orderCustomer"],
           },
         },
       },
@@ -21,5 +21,5 @@ export default async (req, res) => {
     .toArray();
 
   res.statusCode = 200;
-  res.json(data);
+  res.json({ data });
 };

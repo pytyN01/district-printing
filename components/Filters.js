@@ -1,9 +1,16 @@
-import { useRouter } from "next/router";
-import React from "react";
 import AddCustomer from "./Dashboard-Add-Customer";
+import React from "react";
 
-export default function Filters({ user }) {
+import { useRouter } from "next/router";
+
+export default function Filters() {
+  const [user, setUser] = React.useState("");
   const router = useRouter();
+
+  React.useEffect(() => {
+    const loggedIN = localStorage.getItem("name");
+    setUser(loggedIN);
+  }, []);
 
   const capitalize = (s) => {
     if (typeof s !== "string") return "";

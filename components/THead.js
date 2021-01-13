@@ -1,6 +1,13 @@
 import React from "react";
 
-export default function THead({ user }) {
+export default function THead() {
+  const [user, setUser] = React.useState("");
+
+  React.useEffect(() => {
+    const loggedIN = localStorage.getItem("name");
+    setUser(loggedIN);
+  }, []);
+
   return (
     <React.Fragment>
       <thead>
@@ -24,30 +31,18 @@ export default function THead({ user }) {
               <p className="text-nowrap">Customer</p>
             </th>
           )}
-          {user === "Andrew" && (
-            <th className="align-top">
-              <p className="text-nowrap">Created Date</p>
-            </th>
-          )}
-          {user === "Andrew" ? (
-            <th className="align-top">
-              <p className="text-nowrap">Arrival Date</p>
-            </th>
-          ) : (
-            <th className="align-top">
-              <p>Due Date</p>
-            </th>
-          )}
+          <th className="align-top">
+            <p className="text-nowrap">Created Date</p>
+          </th>
+          <th className="align-top">
+            <p className="text-nowrap">Arrival Date</p>
+          </th>
           <th className="align-top">
             <p>Status</p>
           </th>
-          {user === "Andrew" ? (
+          {user !== "Sales" && (
             <th className="align-top">
               <p className="text-nowrap">Printer Name</p>
-            </th>
-          ) : (
-            <th className="align-top">
-              <p>Production</p>
             </th>
           )}
           {user === "Andrew" && (

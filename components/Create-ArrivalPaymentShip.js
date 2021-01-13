@@ -37,8 +37,8 @@ export default function CreateArrivalPaymentShip() {
                   "3 Days",
                   "Next Day",
                   "Custom",
-                ].map((name) => (
-                  <li>
+                ].map((name, index) => (
+                  <li key={index}>
                     <p className="dropdown-item">{name}</p>
                   </li>
                 ))}
@@ -49,7 +49,7 @@ export default function CreateArrivalPaymentShip() {
           <div className="col-4">
             <div className="row">
               <div className="col-12">
-                <input type="date" class="form-control" id="arrivalDate" />
+                <input type="date" className="form-control" id="arrivalDate" />
               </div>
               <div className="col-12">
                 <div className="form-check my-2">
@@ -95,7 +95,7 @@ export default function CreateArrivalPaymentShip() {
               <div className="col-12">
                 <textarea
                   rows="1"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Notes"
                   type="text"
                   id="paymentNotes"
@@ -254,7 +254,7 @@ export default function CreateArrivalPaymentShip() {
                   <div className="col-12 mb-2">
                     <textarea
                       rows="1"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Notes"
                       type="text"
                       id="shippingNotes"

@@ -168,3 +168,22 @@ a {
   left: 15px;
   top: 15px;
 }
+
+.img40 {
+  height: 40px !important;
+  min-height: 40px !important;
+}
+
+.img50 {
+  height: 50px !important;
+  min-height: 50px !important;
+}
+
+.img80 {
+  height: 80px !important;
+  min-height: 80px !important;
+}
+
+.pointer:hover {
+  cursor: pointer;
+}

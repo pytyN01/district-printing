@@ -3,19 +3,25 @@ import ButtonOptions from "./ButtonOptions";
 import ButtonPDF from "./ButtonPDF";
 import AddPrinter from "./Dashboard-Add-Printer";
 
-export default function TBody({ user, data }) {
+export default function TBody({ data }) {
   const [save, setSave] = React.useState(false);
+  const [user, setUser] = React.useState("");
+
+  React.useEffect(() => {
+    const loggedIN = localStorage.getItem("name");
+    setUser(loggedIN);
+  }, []);
+
   return (
     <React.Fragment>
       {data.map((item) => (
-        <tr key={item.id}>
+        <tr key={item.itemID}>
           <td className="text-center">
             <label className="form-check-label">
-              <p>{item.id}</p>
+              <p>{item.itemID}</p>
             </label>
-            <br />
             <input
-              style={{ transform: "scale(3)" }}
+              className="form-control"
               type="checkbox"
               value=""
               id="invoiceCheck"
@@ -23,68 +29,69 @@ export default function TBody({ user, data }) {
           </td>
           <td>
             <p className="text-nowrap">{item.orderName}</p>
-            {/* <br />
-            <small className="text-secondary">
-              <a className="text-reset text-decoration-none" href="#">
-                - Add Comment
-              </a>
-            </small> */}
           </td>
           <td>
             <div className="input-group p-1">
               <input
-                readOnly={save}
-                style={{ maxWidth: "100px" }}
+                readOnly={user === "Andrew" ? save : true}
+                style={{ maxWidth: "120px" }}
                 className="form-control"
                 type="text"
                 id="invoiceNumberInput"
                 placeholder="Invoice #"
               />
-              <button
-                onClick={() => setSave(!save)}
-                type="button"
-                className="btn btn-outline-success"
-                id="invoiceSaveButton"
-              >
-                {save ? "Edit" : "Save"}
-              </button>
+              {user === "Andrew" && (
+                <button
+                  onClick={() => setSave(!save)}
+                  type="button"
+                  className="btn btn-outline-success"
+                  id="invoiceSaveButton"
+                >
+                  {save ? "Edit" : "Save"}
+                </button>
+              )}
+              <input
+                className="form-control"
+                type="checkbox"
+                value={item.invoicePaid}
+                id="apparelCheck"
+              />
             </div>
           </td>
           {user === "Andrew" && (
             <td className=" text-center">
-              <div className="form-check mt-3">
-                <input
-                  style={{ transform: "scale(3)" }}
-                  className="form-check-input"
-                  type="checkbox"
-                  value={item.apparel}
-                  id="apparelCheck"
-                />
-              </div>
+              <input
+                className="form-control mt-1"
+                type="checkbox"
+                value={item.apparel}
+                id="apparelCheck"
+              />
             </td>
           )}
           {user === "Andrew" && (
             <td>
-              <p>{item.customerName}</p>
-              <small className="text-secondary">{`Agent - ${item.customerAgent}`}</small>
-            </td>
-          )}
-          {user === "Andrew" && (
-            <td>
-              <p>{item.created}</p>
+              <p>{item.orderCustomer}</p>
+              <small>{item.orderAgent}</small>
             </td>
           )}
           <td>
-            <p>{item.arrival}</p>
+            <p>{item.createdDate}</p>
+            <small>{item.arrivalTime}</small>
+          </td>
+          <td>
+            <p>{item.arrivalDate}</p>
+            <small>{item.arrivalHardDueDate && "Hard Due Date!!"}</small>
           </td>
           <td>
             <p className="text-nowrap">{item.status}</p>
-            <small className="text-secondary">{item.statusEditor}</small>
+            <small>{item.statusEditor}</small>
           </td>
-          <td>
-            <p>{item.printer}</p>
-            <small className="text-secondary">{item.printerComment}</small>
-          </td>
+          {user !== "Sales" && (
+            <td>
+              <p>{item.printer}</p>
+              <small>{item.printerTime}</small>
+            </td>
+          )}
           {user === "Andrew" && (
             <td>
               <AddPrinter />
@@ -94,24 +101,14 @@ export default function TBody({ user, data }) {
             {item.art.map((image, index) => (
               <img
                 key={index}
-                style={{
-                  width: "80px",
-                  minWidth: "80px",
-                }}
                 src={image}
-                className="img-thumbnail"
-                alt={item.jobName}
+                className="img-thumbnail img80"
+                alt={item.orderName}
               />
             ))}
           </td>
           <td>
             <ButtonPDF />
-            {/* <br />
-            <small className="text-secondary">
-              <a className="text-reset text-decoration-none" href="#">
-                - Add Comment
-              </a>
-            </small> */}
           </td>
           <td>
             <ButtonOptions user={user} />

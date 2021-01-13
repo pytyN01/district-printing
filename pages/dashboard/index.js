@@ -5,10 +5,6 @@ import React from "react";
 import { connectToDatabase } from "../../util/mongodb";
 
 export default function DashboardHome({ products }) {
-  React.useEffect(() => {
-    console.log(products);
-  }, []);
-
   return (
     <>
       <Head>
@@ -33,21 +29,24 @@ export async function getServerSideProps() {
 
   const products = data.map((product) => {
     return {
-      id: product.itemIdNumber,
-      invoice: product.invoiceNumber,
+      itemID: product.itemID,
       orderName: product.orderName,
-      customerName: product.customerName,
-      customerAgent: product.customerAgent,
+      invoiceNumber: product.invoiceNumber,
+      invoicePaid: product.invoicePaid,
       apparel: product.apparel,
-      created: product.createdDate,
-      arrival: product.arrivalDate,
+      orderCustomer: product.orderCustomer,
+      orderAgent: product.orderAgent,
+      createdDate: product.createdDate,
+      arrivalTime: product.arrivalTime,
+      arrivalDate: product.arrivalDate,
+      arrivalHardDueDate: product.arrivalHardDueDate,
       status: product.status,
       statusEditor: product.statusEditor,
       printer: product.printer,
-      printerComment: product.printerComment,
-      art: product.art.images,
-      shippingLabel: product.shipment.shippingLabel,
-      packingList: product.shipment.packingList,
+      printerTime: product.printerTime,
+      art: product.art,
+      trackingUrl: product.shipTrackingUrl,
+      packingUrl: product.shipPackingList,
     };
   });
 

@@ -1,75 +1,73 @@
-export default function CreateTypeSetup() {
+export default function CreateTypeSetup({ state, setState }) {
+  const jobType = [
+    "Embellishment",
+    "Direct to Garment",
+    "Embroidery",
+    "Plastiso",
+    "Waterbase/Discharge",
+    "Other/New",
+  ];
+
+  const selectOrderType = (type) => {
+    setState({ ...state, orderType: type });
+  };
+
+  const handleChange = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    setState({ ...state, [name]: newValue });
+  };
+
   return (
     <div className="row mb-3">
       <div className="col-6">
-        <div className="row mb-2">
-          <div className="col-12">
+        <div className="row">
+          <div className="col">
             <img
-              style={{
-                height: "50px",
-                minHeight: "50px",
-              }}
+              className="img-thumbnail img50 mt-n2 mb-2"
               src="/icon-type.jpg"
-              className="img-thumbnail mt-n2"
               alt="Type Icon"
             />
           </div>
         </div>
         <div className="row">
           <div className="col-12">
-            <div className="btn-group" role="group">
+            <div className="btn-group btn-block" role="group">
               <button
-                style={{ paddingLeft: "9.7vw", paddingRight: "9.7vw" }}
-                id="typeDropdown"
-                type="button"
                 className="btn btn-outline-secondary dropdown-toggle"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                id="typeDropdown"
+                type="button"
               >
-                Job Type
+                {state.orderType}
               </button>
               <ul className="dropdown-menu">
-                <li>
-                  <p className="dropdown-item">Embellishment</p>
-                </li>
-                <li>
-                  <p className="dropdown-item">Direct to Garment</p>
-                </li>
-                <li>
-                  <p className="dropdown-item">Embroidery</p>
-                </li>
-                <li>
-                  <p className="dropdown-item">Plastiso</p>
-                </li>
-                <li>
-                  <p className="dropdown-item">Waterbase/Discharge</p>
-                </li>
-                <li>
-                  <p className="dropdown-item">Other/New</p>
-                </li>
+                {jobType.map((type, index) => (
+                  <li onClick={() => selectOrderType(type)} key={index}>
+                    <p className="dropdown-item pointer">{type}</p>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
           <div className="col-12">
             <textarea
-              placeholder="Notes"
               className="form-control mt-2"
-              id="typeNotes"
+              onChange={handleChange}
+              name="orderTypeNotes"
+              placeholder="Notes"
               rows="1"
             ></textarea>
           </div>
         </div>
       </div>
       <div className="col-6">
-        <div className="row mb-2">
-          <div className="col-12">
+        <div className="row">
+          <div className="col">
             <img
-              style={{
-                height: "50px",
-                minHeight: "50px",
-              }}
+              className="img-thumbnail img50 mt-n2 mb-2"
               src="/icon-setup.jpg"
-              className="img-thumbnail mt-n2"
               alt="Setup Icon"
             />
           </div>
@@ -77,33 +75,37 @@ export default function CreateTypeSetup() {
         <div className="row">
           <div className="col-5">
             <input
-              type="text"
-              className="form-control"
-              id="setupETC"
               placeholder="Setup, Digi.. etc"
+              onChange={handleChange}
+              className="form-control"
+              name="orderSetup"
+              type="text"
             />
           </div>
           <div className="col-4">
             <input
-              type="text"
               className="form-control"
-              id="setupScreens"
+              onChange={handleChange}
               placeholder="Screens"
+              name="orderScreens"
+              type="text"
             />
           </div>
           <div className="col-3">
             <input
-              type="text"
               className="form-control"
-              id="setupScreen"
+              onChange={handleChange}
               placeholder="Screen"
+              name="orderScreen"
+              type="text"
             />
           </div>
           <div className="col-12">
             <textarea
-              placeholder="Notes"
               className="form-control mt-2"
-              id="setupNotes"
+              onChange={handleChange}
+              placeholder="Notes"
+              name="orderSetupNotes"
               rows="1"
             ></textarea>
           </div>

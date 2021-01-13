@@ -1,52 +1,64 @@
 import ArtDrop from "./Art";
 import ProofDrop from "./Proof";
 
-export default function CreateProofArt() {
+export default function CreateProofArt({ state, setState }) {
+  const handleChange = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    setState({ ...state, [name]: newValue });
+  };
+
+  const handleCheck = () => {
+    setState({ ...state, multiplePages: !state.multiplePages });
+  };
+
+  const selectCustomer = (name) => {
+    setState({ ...state, customerName: name });
+  };
   return (
     <div className="row mb-3">
       <div className="col-6">
         <div className="row">
-          <div className="col-12">
+          <div className="col">
             <img
-              style={{
-                height: "40px",
-                minHeight: "40px",
-              }}
+              className="img-thumbnail img40 mt-n2"
               src="/icon-proof.jpg"
-              className="img-thumbnail mt-n2"
               alt="Proof Icon"
             />
           </div>
-        </div>
-        <div className="row">
           <div className="col-12">
             <ProofDrop />
+          </div>
+          <div className="col-12">
+            <textarea
+              className="form-control mt-2"
+              placeholder="Notes"
+              id="proofNotes"
+              rows="1"
+            ></textarea>
           </div>
         </div>
       </div>
 
       <div className="col-6">
         <div className="row">
-          <div className="col-3">
+          <div className="col-4">
             <img
-              style={{
-                height: "40px",
-                minHeight: "40px",
-              }}
+              className="img-thumbnail img40 mt-n2"
               src="/icon-art.jpg"
-              className="img-thumbnail mt-n2"
               alt="Art Icon"
             />
           </div>
-          <div className="col-5 ml-n4 mt-n2">
+          <div className="col-5">
             <input
-              type="text"
-              className="form-control"
+              className="form-control ml-n4 mt-n2"
               placeholder="🔗  ie, box, drive"
-              id="uploadLink"
+              onChange={handleChange}
+              name="artLink"
+              type="text"
             />
           </div>
-          <div className="col-4">
+          <div className="col-3">
             <div className="row">
               <div className="col-1">
                 <input
@@ -60,17 +72,13 @@ export default function CreateProofArt() {
                 htmlFor="matchCheck"
                 className="col-11 mt-n2 col-form-label text-nowrap"
               >
-                Not sized/Match Proof
+                Not sized
               </label>
             </div>
           </div>
-        </div>
-        <div className="row">
           <div className="col-12">
             <ArtDrop />
           </div>
-        </div>
-        <div className="row">
           <div className="col-12">
             <textarea
               placeholder="Notes"

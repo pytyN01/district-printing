@@ -1,42 +1,40 @@
-import { useRouter } from "next/router";
 import Filters from "./Filters";
-import Loading from "./Loading";
 import Header from "./Header";
 import TBody from "./TBody";
 import THead from "./THead";
 import React from "react";
 
+import { useRouter } from "next/router";
+
 export default function Dashboard({ data }) {
-  const [user, setUser] = React.useState(true);
   const router = useRouter();
 
   React.useEffect(() => {
-    const user = localStorage.getItem("name");
-    if (user === "null") router.push("/");
-    else setUser(user);
+    const loggedIN = localStorage.getItem("name");
+    if (loggedIN === "null") router.push("/");
   }, []);
 
-  return user ? (
-    <React.Fragment>
+  return (
+    <>
       <Header />
+
       <div className="container-fluid">
         <div className="row mt-0">
           <main className="col-12 px-4" style={{ height: "90vh" }}>
-            <Filters user={user} />
+            <Filters />
 
             <div className="table-responsive">
-              <table className="table table-bordered table-striped table-hover  table-sm">
-                <THead user={user} />
+              <table className="table table-bordered table-striped table-hover table-sm">
+                <THead />
+
                 <tbody>
-                  <TBody data={data} user={user} />
+                  <TBody data={data} />
                 </tbody>
               </table>
             </div>
           </main>
         </div>
       </div>
-    </React.Fragment>
-  ) : (
-    <Loading />
+    </>
   );
 }

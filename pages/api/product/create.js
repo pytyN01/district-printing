@@ -1,25 +1,22 @@
-import CreateArrivalPaymentShip from "./Create-ArrivalPaymentShip";
-import CreatePositionColors from "./Create-PositionColors";
-import CreateOrderName from "./Create-OrderName";
-import CreateTypeSetup from "./Create-TypeSetup";
-import CreateProofArt from "./Create-ProofArt";
-import CreateProduct from "./CreateProduct";
-import CreateSubmit from "./Create-Submit";
-import Header from "./Header";
+import { connectToDatabase } from "../../../util/mongodb";
 
-export default function Create() {
-  const [state, setState] = React.useState({
-    itemID: "",
+export default async (req, res) => {
+  const { db } = await connectToDatabase();
+
+  // console.log(req);
+
+  db.collection("products").insertOne({
+    itemID: "#10000",
     invoiceNumber: "",
     invoicePaid: false,
     apparel: false,
     status: "New Order",
     statusEditor: "",
-    printer: "",
+    printer: "No Assigned Printer",
     printerTime: "",
-    createdDate: "",
-    arrivalDate: "",
-    orderName: "",
+    createdDate: "1/13/2021",
+    arrivalDate: "1/20/2021",
+    orderName: "Order One",
     orderCustomer: "Customer Name",
     orderAgent: "Customer Agent",
     orderMultiplePages: false,
@@ -29,10 +26,15 @@ export default function Create() {
     setupScreens: "",
     setupScreen: "",
     setupNotes: "",
-    proof: [""],
+    proof: [
+      "https://cdn.shopify.com/s/files/1/1663/2287/products/blank_8a017003-4834-4e04-8979-d18c665db0ed_540x.png",
+    ],
     proofNotes: "",
-    art: [""],
-    artLink: "",
+    art: [
+      "https://cdn.shopify.com/s/files/1/1663/2287/products/blank_8a017003-4834-4e04-8979-d18c665db0ed_540x.png",
+    ],
+    artLink:
+      "https://cdn.shopify.com/s/files/1/1663/2287/products/blank_8a017003-4834-4e04-8979-d18c665db0ed_540x.png",
     artSize: false,
     artNotes: "",
     positionFront: "",
@@ -49,7 +51,7 @@ export default function Create() {
     colorsColor3: "",
     colorsMatchProof: false,
     colorsNotes: "",
-    arrivalTime: "Est. Arrival Time",
+    arrivalTime: "7 - 10 days",
     arrivalRequestDate: "",
     arrivalHardDueDate: false,
     paymentInvoiceUrl: "",
@@ -220,40 +222,6 @@ export default function Create() {
     },
   });
 
-  return (
-    <>
-      <Header />
-      <div className="container-fluid">
-        <div className="row mt-0">
-          <main className="col-12 px-4" style={{ height: "90vh" }}>
-            <div className="row mt-4">
-              <div className="col">
-                <CreateOrderName state={state} setState={(x) => setState(x)} />
-
-                <CreateTypeSetup state={state} setState={(x) => setState(x)} />
-
-                <CreateProofArt state={state} setState={(x) => setState(x)} />
-
-                <CreatePositionColors
-                  state={state}
-                  setState={(x) => setState(x)}
-                />
-              </div>
-
-              <div className="col">
-                <CreateProduct state={state} setState={(x) => setState(x)} />
-
-                <CreateArrivalPaymentShip
-                  state={state}
-                  setState={(x) => setState(x)}
-                />
-
-                <CreateSubmit state={state} setState={(x) => setState(x)} />
-              </div>
-            </div>
-          </main>
-        </div>
-      </div>
-    </>
-  );
-}
+  res.statusCode = 201;
+  res.json("Item Created");
+};
