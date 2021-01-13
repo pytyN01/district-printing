@@ -31,7 +31,7 @@ export default function DropZone() {
             type="button"
             className="btn btn-outline-light ml-2"
           >
-            <i className="fas fa-times"></i>
+            <i aria-hidden className="fas fa-times"></i>
           </button>
         </span>
       </div>

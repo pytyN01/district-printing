@@ -3,8 +3,6 @@ import { connectToDatabase } from "../../../util/mongodb";
 export default async (req, res) => {
   const { db } = await connectToDatabase();
 
-  // console.log(req);
-
   db.collection("products").insertOne({
     itemID: "#10000",
     invoiceNumber: "",

@@ -7,7 +7,7 @@ export default function AddPrinter() {
         data-bs-toggle="modal"
         data-bs-target="#assignPrinterInfo"
       >
-        <i className="far fa-edit"></i>
+        <i aria-hidden className="far fa-edit"></i>
       </button>
       <div
         className="modal fade"
@@ -28,33 +28,20 @@ export default function AddPrinter() {
                 className="btn btn-outline-secondary"
                 data-bs-dismiss="modal"
               >
-                <i className="fas fa-times"></i>
+                <i aria-hidden className="fas fa-times"></i>
               </button>
             </div>
             <div className="modal-body">
               <div className="mb-3 row">
-                <label htmlFor="printerName" className="col-2 col-form-label">
-                  Name
-                </label>
+                <label className="col-2 col-form-label">Name</label>
                 <div className="col-10">
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="printerName"
-                  />
+                  <input type="text" className="form-control" />
                 </div>
               </div>
               <div className="mb-3 row">
-                <label htmlFor="printerNotes" className="col-2 col-form-label">
-                  Notes
-                </label>
+                <label className="col-2 col-form-label">Notes</label>
                 <div className="col-10">
-                  <textarea
-                    type="text"
-                    className="form-control"
-                    id="printerNotes"
-                    row="3"
-                  />
+                  <textarea type="text" className="form-control" row="3" />
                 </div>
               </div>
             </div>

@@ -5,6 +5,7 @@ import React from "react";
 import { connectToDatabase } from "../../util/mongodb";
 
 export default function DashboardHome({ products }) {
+  // console.log(products);
   return (
     <>
       <Head>
@@ -28,7 +29,9 @@ export async function getServerSideProps() {
     .toArray();
 
   const products = data.map((product) => {
+    // const id = JSON.parse(JSON.stringify(product._id));
     return {
+      // ID: id,
       itemID: product.itemID,
       orderName: product.orderName,
       invoiceNumber: product.invoiceNumber,

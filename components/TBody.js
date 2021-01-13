@@ -20,12 +20,7 @@ export default function TBody({ data }) {
             <label className="form-check-label">
               <p>{item.itemID}</p>
             </label>
-            <input
-              className="form-control"
-              type="checkbox"
-              value=""
-              id="invoiceCheck"
-            />
+            <input className="form-control" type="checkbox" value="" />
           </td>
           <td>
             <p className="text-nowrap">{item.orderName}</p>
@@ -37,7 +32,6 @@ export default function TBody({ data }) {
                 style={{ maxWidth: "120px" }}
                 className="form-control"
                 type="text"
-                id="invoiceNumberInput"
                 placeholder="Invoice #"
               />
               {user === "Andrew" && (
@@ -45,7 +39,6 @@ export default function TBody({ data }) {
                   onClick={() => setSave(!save)}
                   type="button"
                   className="btn btn-outline-success"
-                  id="invoiceSaveButton"
                 >
                   {save ? "Edit" : "Save"}
                 </button>
@@ -54,7 +47,6 @@ export default function TBody({ data }) {
                 className="form-control"
                 type="checkbox"
                 value={item.invoicePaid}
-                id="apparelCheck"
               />
             </div>
           </td>
@@ -64,7 +56,6 @@ export default function TBody({ data }) {
                 className="form-control mt-1"
                 type="checkbox"
                 value={item.apparel}
-                id="apparelCheck"
               />
             </td>
           )}

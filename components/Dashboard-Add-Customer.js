@@ -28,7 +28,7 @@ export default function AddCustomer() {
                 className="btn btn-outline-secondary"
                 data-bs-dismiss="modal"
               >
-                <i className="fas fa-times"></i>
+                <i aria-hidden className="fas fa-times"></i>
               </button>
             </div>
             <div className="modal-body">
