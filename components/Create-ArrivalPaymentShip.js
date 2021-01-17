@@ -1,45 +1,58 @@
-export default function CreateArrivalPaymentShip() {
+import React from "react";
+
+export default function CreateArrivalPaymentShip({ state, setState }) {
+  const shipping = ["FedEx", "USPS - US Postal", "UPS", "DHL"];
+  const arrival = [
+    "7-10 Days",
+    "5 Business Days",
+    "3 Days",
+    "Next Day",
+    "Custom",
+  ];
+
+  const handleDueCheck = () => {
+    setState({ ...state, arrivalHardDueDate: !state.arrivalHardDueDate });
+  };
+
+  const handleTermsCheck = () => {
+    setState({ ...state, paymentTerms: !state.paymentTerms });
+  };
+
+  const handlePickupCheck = () => {
+    setState({ ...state, shipPickup: !state.shipPickup });
+  };
+
   return (
     <div className="row mb-3">
       <div className="col-12">
         <div className="row">
           <div className="col-3">
             <img
-              style={{
-                height: "50px",
-                minHeight: "50px",
-              }}
               src="/icon-arrival.jpg"
-              className="img-thumbnail mt-n2"
+              className="img-thumbnail img50 mt-n2"
               alt="Arrival Icon"
             />
           </div>
 
           <div className="col-4">
-            <div className="dropdown">
+            <div className="btn-group btn-block" role="group">
               <button
-                style={{ paddingLeft: "4.3vw", paddingRight: "4.3vw" }}
                 className="btn btn-outline-secondary dropdown-toggle"
-                type="button"
-                id="dropdownArrival"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                type="button"
               >
-                Est. Arrival Time
+                {state.arrivalTime}
               </button>
-              <ul
-                className="dropdown-menu"
-                style={{ height: "180px", overflowY: "auto" }}
-              >
-                {[
-                  "7-10 Days",
-                  "5 Business Days",
-                  "3 Days",
-                  "Next Day",
-                  "Custom",
-                ].map((name, index) => (
+              <ul className="dropdown-menu">
+                {arrival.map((name, index) => (
                   <li key={index}>
-                    <p className="dropdown-item">{name}</p>
+                    <p
+                      onClick={() => setState({ ...state, arrivalTime: name })}
+                      className="dropdown-item pointer"
+                    >
+                      {name}
+                    </p>
                   </li>
                 ))}
               </ul>
@@ -54,12 +67,16 @@ export default function CreateArrivalPaymentShip() {
               <div className="col-12">
                 <div className="form-check my-2">
                   <input
+                    checked={state.arrivalHardDueDate}
                     className="form-check-input"
+                    onChange={handleDueCheck}
                     type="checkbox"
-                    value=""
-                    id="dueDateCheckbox"
+                    id="arrivalHardDueDate"
                   />
-                  <label className="form-check-label" htmlFor="dueDateCheckbox">
+                  <label
+                    className="form-check-label"
+                    htmlFor="arrivalHardDueDate"
+                  >
                     Hard Due Date
                   </label>
                 </div>
@@ -72,12 +89,8 @@ export default function CreateArrivalPaymentShip() {
         <div className="row">
           <div className="col-3">
             <img
-              style={{
-                height: "50px",
-                minHeight: "50px",
-              }}
               src="/icon-payment.jpg"
-              className="img-thumbnail mt-n2"
+              className="img-thumbnail img50 mt-n2"
               alt="Payment Icon"
             />
           </div>
@@ -104,12 +117,13 @@ export default function CreateArrivalPaymentShip() {
               <div className="col-12">
                 <div className="form-check my-2">
                   <input
+                    checked={state.paymentTerms}
                     className="form-check-input"
+                    onChange={handleTermsCheck}
                     type="checkbox"
-                    value=""
-                    id="termsCheckbox"
+                    id="paymentTerms"
                   />
-                  <label className="form-check-label" htmlFor="termsCheckbox">
+                  <label className="form-check-label" htmlFor="paymentTerms">
                     Terms
                   </label>
                 </div>
@@ -122,12 +136,8 @@ export default function CreateArrivalPaymentShip() {
         <div className="row">
           <div className="col-12 mb-3">
             <img
-              style={{
-                height: "50px",
-                minHeight: "50px",
-              }}
               src="/icon-ship.jpg"
-              className="img-thumbnail mt-n2"
+              className="img-thumbnail img50 mt-n2"
               alt="Shipment Icon"
             />
           </div>
@@ -200,44 +210,40 @@ export default function CreateArrivalPaymentShip() {
                   <div className="col-2">
                     <div className="form-check">
                       <input
+                        checked={state.shipPickup}
                         className="form-check-input"
+                        onChange={handlePickupCheck}
                         type="checkbox"
-                        value=""
-                        id="pickupCheckbox"
+                        id="shipPickup"
                       />
-                      <label
-                        className="form-check-label"
-                        htmlFor="pickupCheckbox"
-                      >
+                      <label className="form-check-label" htmlFor="shipPickup">
                         Pickup
                       </label>
                     </div>
                   </div>
                   <div className="col-10">
-                    <div className="dropdown">
+                    <div className="btn-group btn-block" role="group">
                       <button
-                        style={{ paddingLeft: "6vw", paddingRight: "6vw" }}
                         className="btn btn-outline-secondary dropdown-toggle"
-                        type="button"
-                        id="dropdownPickup"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
+                        type="button"
                       >
-                        Shipping Method
+                        {state.shipMethod}
                       </button>
                       <ul className="dropdown-menu">
-                        <li>
-                          <p className="dropdown-item">FedEx</p>
-                        </li>
-                        <li>
-                          <p className="dropdown-item">USPS - US Postal</p>
-                        </li>
-                        <li>
-                          <p className="dropdown-item">UPS</p>
-                        </li>
-                        <li>
-                          <p className="dropdown-item">DHL</p>
-                        </li>
+                        {shipping.map((name, index) => (
+                          <li key={index}>
+                            <p
+                              onClick={() =>
+                                setState({ ...state, shipMethod: name })
+                              }
+                              className="dropdown-item pointer"
+                            >
+                              {name}
+                            </p>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
