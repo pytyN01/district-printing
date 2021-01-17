@@ -5,7 +5,6 @@ import React from "react";
 import { connectToDatabase } from "../../util/mongodb";
 
 export default function DashboardHome({ products }) {
-  // console.log(products);
   return (
     <>
       <Head>

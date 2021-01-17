@@ -31,10 +31,25 @@ export default function Filters() {
               >
                 Search
               </button>
-              <button type="button" className="btn btn-outline-secondary">
+              <button
+                onClick={() => router.reload(window.location.pathname)}
+                type="button"
+                className="btn btn-outline-secondary"
+              >
                 Reset Filters
               </button>
             </div>
+          </div>
+
+          <div className="btn-group p-1" role="group">
+            <button
+              type="button"
+              onClick={() => router.push("/create")}
+              className="btn btn-success"
+              id="search-button"
+            >
+              Create Order
+            </button>
           </div>
 
           <div className="btn-group p-1" role="group">
@@ -67,17 +82,6 @@ export default function Filters() {
                 </li>
               </ul>
             </div>
-          </div>
-
-          <div className="btn-group p-1" role="group">
-            <button
-              type="button"
-              onClick={() => router.push("/create")}
-              className="btn btn-outline-success"
-              id="search-button"
-            >
-              Create Order
-            </button>
           </div>
 
           <div className="dropdown p-1">

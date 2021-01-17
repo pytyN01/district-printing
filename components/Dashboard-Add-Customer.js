@@ -2,20 +2,20 @@ export default function AddCustomer() {
   return (
     <>
       <button
-        type="button"
         className="btn btn-outline-primary"
-        data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
+        data-bs-toggle="modal"
+        type="button"
       >
         Add Customer
       </button>
       <div
-        className="modal fade"
-        id="staticBackdrop"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        tabIndex="-1"
+        className="modal fade"
+        id="staticBackdrop"
         aria-hidden="true"
+        tabIndex="-1"
       >
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
@@ -24,9 +24,9 @@ export default function AddCustomer() {
                 Add Customer
               </h5>
               <button
-                type="button"
                 className="btn btn-outline-secondary"
                 data-bs-dismiss="modal"
+                type="button"
               >
                 <i aria-hidden className="fas fa-times"></i>
               </button>
@@ -38,9 +38,9 @@ export default function AddCustomer() {
                 </label>
                 <div className="col-10">
                   <input
-                    type="text"
                     className="form-control"
                     id="customerName"
+                    type="text"
                   />
                 </div>
               </div>
@@ -50,9 +50,9 @@ export default function AddCustomer() {
                 </label>
                 <div className="col-10">
                   <input
-                    type="email"
                     className="form-control"
                     id="customerEmail"
+                    type="email"
                   />
                 </div>
               </div>
@@ -63,41 +63,41 @@ export default function AddCustomer() {
                 </label>
                 <div className="col-10">
                   <input
-                    type="tel"
                     className="form-control"
                     id="customerPhone"
+                    type="tel"
                   />
                 </div>
               </div>
 
               <div className="mb-3 row">
                 <label
-                  htmlFor="customerAddress"
                   className="col-4 col-form-label"
+                  htmlFor="customerAddress"
                 >
                   Street Address
                 </label>
                 <div className="col-8">
                   <input
-                    type="text"
                     className="form-control"
                     id="customerAddress"
+                    type="text"
                   />
                 </div>
               </div>
 
               <div className="mb-3 row">
                 <label
-                  htmlFor="customerSecondary"
                   className="col-4 col-form-label"
+                  htmlFor="customerSecondary"
                 >
                   Address Line 2
                 </label>
                 <div className="col-8">
                   <input
-                    type="text"
                     className="form-control"
                     id="customerSecondary"
+                    type="text"
                   />
                 </div>
               </div>
@@ -109,9 +109,9 @@ export default function AddCustomer() {
                 </label>
                 <div className="col-5">
                   <input
-                    type="text"
                     className="form-control"
                     id="customerCity"
+                    type="text"
                   />
                 </div>
               </div>
@@ -123,9 +123,9 @@ export default function AddCustomer() {
                 </label>
                 <div className="col-5">
                   <input
-                    type="text"
                     className="form-control"
                     id="customerState"
+                    type="text"
                   />
                 </div>
               </div>
@@ -133,25 +133,102 @@ export default function AddCustomer() {
               <div className="mb-3 row">
                 <div className="col-4"></div>
                 <label
-                  htmlFor="customerZipCode"
                   className="col-3 col-form-label"
+                  htmlFor="customerZipCode"
                 >
                   Zip Code
                 </label>
                 <div className="col-5">
                   <input
-                    type="text"
                     className="form-control"
                     id="customerZipCode"
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <div className="mb-3 row">
+                <label
+                  className="col-4 col-form-label"
+                  htmlFor="businessAddress"
+                >
+                  Street Address
+                </label>
+                <div className="col-8">
+                  <input
+                    className="form-control"
+                    id="businessAddress"
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <div className="mb-3 row">
+                <label
+                  className="col-4 col-form-label"
+                  htmlFor="businessSecondary"
+                >
+                  Address Line 2
+                </label>
+                <div className="col-8">
+                  <input
+                    className="form-control"
+                    id="businessSecondary"
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <div className="mb-3 row">
+                <div className="col-4"></div>
+                <label htmlFor="businessCity" className="col-3 col-form-label">
+                  City
+                </label>
+                <div className="col-5">
+                  <input
+                    className="form-control"
+                    id="businessCity"
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <div className="mb-3 row">
+                <div className="col-4"></div>
+                <label htmlFor="businessState" className="col-3 col-form-label">
+                  State
+                </label>
+                <div className="col-5">
+                  <input
+                    className="form-control"
+                    id="businessState"
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <div className="mb-3 row">
+                <div className="col-4"></div>
+                <label
+                  className="col-3 col-form-label"
+                  htmlFor="businessZipCode"
+                >
+                  Zip Code
+                </label>
+                <div className="col-5">
+                  <input
+                    className="form-control"
+                    id="businessZipCode"
+                    type="text"
                   />
                 </div>
               </div>
             </div>
             <div className="modal-footer">
               <button
-                type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
+                type="button"
               >
                 Close
               </button>

@@ -1,19 +1,15 @@
-export default function CreateProduct() {
+export default function CreateProduct({ state, setState }) {
   return (
     <div className="row mb-3">
-      <div className="col-12 px-3">
+      <div className="col">
         <img
-          style={{
-            height: "50px",
-            minHeight: "50px",
-          }}
+          className="img-thumbnail img50 mt-n2"
           src="/icon-product.jpg"
-          className="img-thumbnail mt-n2"
           alt="Product Icon"
         />
       </div>
 
-      <div className="col-12 px-3 mt-3">
+      <div className="col-12 mt-3">
         <div
           id="carouselExampleIndicators"
           className="carousel slide"

@@ -85,7 +85,7 @@ export default function TBody({ data }) {
           )}
           {user === "Andrew" && (
             <td>
-              <AddPrinter />
+              <AddPrinter arrival={item.arrivalDate} />
             </td>
           )}
           <td>

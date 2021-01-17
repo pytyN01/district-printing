@@ -1,8 +1,12 @@
 import { useDropzone } from "react-dropzone";
 import React from "react";
 
-export default function DropZone() {
+export default function DropZone({ handleArt }) {
   const [myFiles, setMyFiles] = React.useState([]);
+
+  React.useEffect(() => {
+    handleArt(myFiles);
+  }, [myFiles]);
 
   const onDrop = React.useCallback(
     (acceptedFiles) => {

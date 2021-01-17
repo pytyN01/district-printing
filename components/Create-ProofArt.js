@@ -9,12 +9,17 @@ export default function CreateProofArt({ state, setState }) {
   };
 
   const handleCheck = () => {
-    setState({ ...state, multiplePages: !state.multiplePages });
+    setState({ ...state, artSize: !state.artSize });
   };
 
-  const selectCustomer = (name) => {
-    setState({ ...state, customerName: name });
+  const handleProof = (x) => {
+    setState({ ...state, proof: x });
   };
+
+  const handleArt = (x) => {
+    setState({ ...state, art: x });
+  };
+
   return (
     <div className="row mb-3">
       <div className="col-6">
@@ -27,13 +32,14 @@ export default function CreateProofArt({ state, setState }) {
             />
           </div>
           <div className="col-12">
-            <ProofDrop />
+            <ProofDrop handleProof={(x) => handleProof(x)} />
           </div>
           <div className="col-12">
             <textarea
               className="form-control mt-2"
+              onChange={handleChange}
               placeholder="Notes"
-              id="proofNotes"
+              name="proofNotes"
               rows="1"
             ></textarea>
           </div>
@@ -63,27 +69,29 @@ export default function CreateProofArt({ state, setState }) {
               <div className="col-1">
                 <input
                   className="form-check-input"
+                  checked={state.artSize}
+                  onChange={handleCheck}
                   type="checkbox"
-                  value=""
-                  id="matchCheck"
+                  id="artSize"
                 />
               </div>
               <label
-                htmlFor="matchCheck"
                 className="col-11 mt-n2 col-form-label text-nowrap"
+                htmlFor="artSize"
               >
                 Not sized
               </label>
             </div>
           </div>
           <div className="col-12">
-            <ArtDrop />
+            <ArtDrop handleArt={(x) => handleArt(x)} />
           </div>
           <div className="col-12">
             <textarea
-              placeholder="Notes"
               className="form-control mt-2"
-              id="artNotes"
+              onChange={handleChange}
+              placeholder="Notes"
+              name="artNotes"
               rows="1"
             ></textarea>
           </div>

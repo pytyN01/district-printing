@@ -1,16 +1,34 @@
-export default function CreatePositionColors() {
+export default function CreatePositionColors({ state, setState }) {
+  const {
+    positionMatchProof,
+    colorsColor4,
+    colorsColor5,
+    colorsColor6,
+    colorsMatchProof,
+  } = state;
+
+  const handleChange = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    setState({ ...state, [name]: newValue });
+  };
+
+  const handlePositionCheck = () => {
+    setState({ ...state, positionMatchProof: !positionMatchProof });
+  };
+
+  const handleColorCheck = () => {
+    setState({ ...state, colorsMatchProof: !colorsMatchProof });
+  };
+
   return (
     <div className="row mb-3">
       <div className="col-6">
         <div className="row">
-          <div className="col-12">
+          <div className="col">
             <img
-              style={{
-                height: "40px",
-                minHeight: "40px",
-              }}
+              className="img-thumbnail img40 mt-n2"
               src="/icon-posi.jpg"
-              className="img-thumbnail mt-n2"
               alt="Position Icon"
             />
           </div>
@@ -18,25 +36,23 @@ export default function CreatePositionColors() {
           <div className="col-12">
             <div className="row">
               <div className="col-6 text-center">
-                <label htmlFor="positionFront" className="form-label">
-                  Front
-                </label>
+                <label className="form-label">Front</label>
                 <textarea
-                  type="text"
-                  className="form-control"
-                  id="positionFront"
                   placeholder="ie. 3.5 inches from neck"
+                  onChange={handleChange}
+                  className="form-control"
+                  name="positionFront"
+                  type="text"
                   rows="1"
                 />
               </div>
               <div className="col-6 text-center">
-                <label htmlFor="positionBack" className="form-label">
-                  Back
-                </label>
+                <label className="form-label">Back</label>
                 <textarea
-                  type="text"
                   className="form-control"
-                  id="positionBack"
+                  onChange={handleChange}
+                  name="positionBack"
+                  type="text"
                   rows="1"
                 />
               </div>
@@ -44,25 +60,23 @@ export default function CreatePositionColors() {
 
             <div className="row">
               <div className="col-6 text-center">
-                <label htmlFor="positionRightLeft" className="form-label">
-                  Right/Left
-                </label>
+                <label className="form-label">Right/Left</label>
                 <textarea
-                  type="text"
                   className="form-control"
-                  id="positionRightLeft"
+                  name="positionRightLeft"
+                  onChange={handleChange}
+                  type="text"
                   rows="1"
                 />
               </div>
               <div className="col-6 text-center">
-                <label htmlFor="positionAdditional" className="form-label">
-                  Additional
-                </label>
+                <label className="form-label">Additional</label>
                 <textarea
-                  type="text"
-                  className="form-control"
-                  id="positionAdditional"
                   placeholder="ie. Size Tag"
+                  name="positionAdditional"
+                  className="form-control"
+                  onChange={handleChange}
+                  type="text"
                   rows="1"
                 />
               </div>
@@ -72,21 +86,27 @@ export default function CreatePositionColors() {
               <div className="col-12">
                 <div className="form-check py-2">
                   <input
+                    onChange={handlePositionCheck}
+                    checked={positionMatchProof}
                     className="form-check-input"
+                    id="positionMatchProof"
                     type="checkbox"
-                    value=""
-                    id="positionProof"
                   />
-                  <label className="form-check-label" htmlFor="positionProof">
+                  <label
+                    htmlFor="positionMatchProof"
+                    className="form-check-label"
+                  >
                     Match Proof Position
                   </label>
                 </div>
               </div>
               <div className="col-12">
                 <textarea
-                  type="text"
                   className="form-control"
+                  onChange={handleChange}
+                  name="positionNotes"
                   placeholder="Notes"
+                  type="text"
                   rows="1"
                 />
               </div>
@@ -97,14 +117,10 @@ export default function CreatePositionColors() {
 
       <div className="col-6">
         <div className="row">
-          <div className="col-12">
+          <div className="col">
             <img
-              style={{
-                height: "40px",
-                minHeight: "40px",
-              }}
+              className="img-thumbnail img40 mt-n2"
               src="/icon-colors.jpg"
-              className="img-thumbnail mt-n2"
               alt="Colors Icon"
             />
           </div>
@@ -116,26 +132,29 @@ export default function CreatePositionColors() {
             <div className="row">
               <div className="col-4">
                 <input
-                  id="pantone1"
-                  type="text"
                   className="form-control"
+                  onChange={handleChange}
+                  name="colorsColor1"
                   placeholder="PMS"
+                  type="text"
                 />
               </div>
               <div className="col-4">
                 <input
-                  id="pantone2"
-                  type="text"
                   className="form-control"
+                  onChange={handleChange}
+                  name="colorsColor2"
                   placeholder="PMS"
+                  type="text"
                 />
               </div>
               <div className="col-4">
                 <input
-                  id="pantone3"
-                  type="text"
                   className="form-control"
+                  onChange={handleChange}
+                  name="colorsColor3"
                   placeholder="PMS"
+                  type="text"
                 />
               </div>
             </div>
@@ -144,25 +163,64 @@ export default function CreatePositionColors() {
             </div>
             <div className="row">
               <div className="col-4">
-                <input
-                  type="color"
-                  className="form-control form-control-color"
-                  id="otherColor1"
-                />
+                <div className="row">
+                  <div className="col-4 pr-0">
+                    <input
+                      className="form-control form-control-color p-0"
+                      onChange={handleChange}
+                      name="colorsColor4"
+                      type="color"
+                    />
+                  </div>
+                  <div className="col-8 pl-0">
+                    <input
+                      className="form-control"
+                      value={colorsColor4}
+                      type="text"
+                      disabled
+                    />
+                  </div>
+                </div>
               </div>
               <div className="col-4">
-                <input
-                  type="color"
-                  className="form-control form-control-color"
-                  id="otherColor2"
-                />
+                <div className="row">
+                  <div className="col-4 pr-0">
+                    <input
+                      className="form-control form-control-color p-0"
+                      onChange={handleChange}
+                      name="colorsColor5"
+                      type="color"
+                    />
+                  </div>
+                  <div className="col-8 pl-0">
+                    <input
+                      className="form-control"
+                      value={colorsColor5}
+                      type="text"
+                      disabled
+                    />
+                  </div>
+                </div>
               </div>
               <div className="col-4">
-                <input
-                  type="color"
-                  className="form-control form-control-color"
-                  id="otherColor3"
-                />
+                <div className="row">
+                  <div className="col-4 pr-0">
+                    <input
+                      className="form-control form-control-color p-0"
+                      onChange={handleChange}
+                      name="colorsColor6"
+                      type="color"
+                    />
+                  </div>
+                  <div className="col-8 pl-0">
+                    <input
+                      className="form-control"
+                      value={colorsColor6}
+                      type="text"
+                      disabled
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="row">
@@ -170,20 +228,26 @@ export default function CreatePositionColors() {
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={handleColorCheck}
+                    checked={colorsMatchProof}
                     type="checkbox"
-                    value=""
-                    id="positionColors"
+                    id="colorsMatchProof"
                   />
-                  <label className="form-check-label" htmlFor="positionColors">
+                  <label
+                    className="form-check-label"
+                    htmlFor="colorsMatchProof"
+                  >
                     Match Proof Color
                   </label>
                 </div>
               </div>
               <div className="col-12">
                 <textarea
-                  type="text"
                   className="form-control"
+                  onChange={handleChange}
+                  name="colorsNotes"
                   placeholder="Notes"
+                  type="text"
                   rows="1"
                 />
               </div>

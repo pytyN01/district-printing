@@ -1,14 +1,14 @@
 export default function CreateName({ state, setState }) {
   const customers = [
-    "Agent Alexis 1",
-    "Agent Alexis 2",
-    "Agent Alexis 3",
-    "Agent Alexis 4",
-    "Agent Alexis 5",
-    "Agent Alexis 6",
-    "Agent Alexis 7",
-    "Agent Alexis 8",
-    "Agent Alexis 9",
+    "Customer 1",
+    "Customer 2",
+    "Customer 3",
+    "Customer 4",
+    "Customer 5",
+    "Customer 6",
+    "Customer 7",
+    "Customer 8",
+    "Customer 9",
   ];
 
   const handleChange = (evt) => {
@@ -18,11 +18,11 @@ export default function CreateName({ state, setState }) {
   };
 
   const handleCheck = () => {
-    setState({ ...state, multiplePages: !state.multiplePages });
+    setState({ ...state, orderMultiplePages: !state.orderMultiplePages });
   };
 
   const selectCustomer = (name) => {
-    setState({ ...state, customerName: name });
+    setState({ ...state, orderCustomer: name });
   };
 
   return (
@@ -79,13 +79,15 @@ export default function CreateName({ state, setState }) {
           <div className="col">
             <div className="form-check">
               <input
-                value={state.multiplePages}
+                checked={state.orderMultiplePages}
                 className="form-check-input"
                 onChange={handleCheck}
-                name="multiplePages"
                 type="checkbox"
+                id="orderMultiplePages"
               />
-              <label className="form-check-label">Multiple Pages</label>
+              <label htmlFor="orderMultiplePages" className="form-check-label">
+                Multiple Pages
+              </label>
             </div>
           </div>
         </div>
