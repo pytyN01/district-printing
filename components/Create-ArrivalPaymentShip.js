@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function CreateArrivalPaymentShip({ state, setState }) {
+  const [arrivalDate, setArrivalDate] = React.useState("");
   const shipping = ["FedEx", "USPS - US Postal", "UPS", "DHL"];
   const arrival = [
     "7-10 Days",
@@ -9,6 +10,23 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
     "Next Day",
     "Custom",
   ];
+
+  React.useEffect(() => {
+    const date = new Date().toISOString().substr(0, 10);
+    setArrivalDate(date);
+  }, []);
+
+  const handleChange = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.value;
+    setState({ ...state, [name]: newValue });
+  };
+
+  const handleFile = (evt) => {
+    const name = evt.target.name;
+    const newValue = evt.target.files[0];
+    setState({ ...state, [name]: newValue });
+  };
 
   const handleDueCheck = () => {
     setState({ ...state, arrivalHardDueDate: !state.arrivalHardDueDate });
@@ -28,12 +46,11 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
         <div className="row">
           <div className="col-3">
             <img
-              src="/icon-arrival.jpg"
               className="img-thumbnail img50 mt-n2"
+              src="/icon-arrival.jpg"
               alt="Arrival Icon"
             />
           </div>
-
           <div className="col-4">
             <div className="btn-group btn-block" role="group">
               <button
@@ -58,20 +75,24 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
               </ul>
             </div>
           </div>
-
           <div className="col-4">
             <div className="row">
               <div className="col-12">
-                <input type="date" className="form-control" id="arrivalDate" />
+                <input
+                  onChange={(e) => setArrivalDate(e.target.value)}
+                  className="form-control"
+                  value={arrivalDate}
+                  type="date"
+                />
               </div>
               <div className="col-12">
-                <div className="form-check my-2">
+                <div className="form-check mt-2 mb-3">
                   <input
                     checked={state.arrivalHardDueDate}
                     className="form-check-input"
                     onChange={handleDueCheck}
-                    type="checkbox"
                     id="arrivalHardDueDate"
+                    type="checkbox"
                   />
                   <label
                     className="form-check-label"
@@ -89,39 +110,40 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
         <div className="row">
           <div className="col-3">
             <img
-              src="/icon-payment.jpg"
               className="img-thumbnail img50 mt-n2"
+              src="/icon-payment.jpg"
               alt="Payment Icon"
             />
           </div>
-
           <div className="col-4">
             <input
               placeholder="Invoice URL"
-              type="text"
+              onChange={handleChange}
+              name="paymentInvoiceUrl"
               className="form-control"
+              type="text"
             />
           </div>
-
           <div className="col-4">
             <div className="row">
               <div className="col-12">
                 <textarea
-                  rows="1"
                   className="form-control"
+                  onChange={handleChange}
                   placeholder="Notes"
+                  name="paymentNotes"
                   type="text"
-                  id="paymentNotes"
+                  rows="1"
                 ></textarea>
               </div>
               <div className="col-12">
-                <div className="form-check my-2">
+                <div className="form-check mt-2 mb-3">
                   <input
                     checked={state.paymentTerms}
                     className="form-check-input"
                     onChange={handleTermsCheck}
-                    type="checkbox"
                     id="paymentTerms"
+                    type="checkbox"
                   />
                   <label className="form-check-label" htmlFor="paymentTerms">
                     Terms
@@ -133,161 +155,188 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
         </div>
       </div>
       <div className="col-12">
-        <div className="row">
-          <div className="col-12 mb-3">
+        <div className="row mb-4">
+          <div className="col-6">
             <img
-              src="/icon-ship.jpg"
               className="img-thumbnail img50 mt-n2"
+              src="/icon-ship.jpg"
               alt="Shipment Icon"
             />
           </div>
-          <div className="col-12 mb-3">
-            <div className="row mt-2">
-              <div className="col-6">
-                <div className="row mb-2">
-                  <div className="col-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Name"
-                    />
-                  </div>
-                  <div className="col-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Attn:"
-                    />
-                  </div>
+          <div className="col-6">
+            <div className="row">
+              <div className="col-2">
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    onChange={handlePickupCheck}
+                    checked={state.shipPickup}
+                    type="checkbox"
+                    id="shipPickup"
+                  />
+                  <label className="form-check-label" htmlFor="shipPickup">
+                    Pickup
+                  </label>
                 </div>
+              </div>
+              <div className="col-10">
+                <div className="btn-group btn-block" role="group">
+                  <button
+                    className="btn btn-outline-secondary dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    type="button"
+                  >
+                    {state.shipMethod}
+                  </button>
+                  <ul className="dropdown-menu">
+                    {shipping.map((name, index) => (
+                      <li key={index}>
+                        <p
+                          onClick={() =>
+                            setState({ ...state, shipMethod: name })
+                          }
+                          className="dropdown-item pointer"
+                        >
+                          {name}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="col-12">
+        <div className="row">
+          <div className="col-6">
+            <div className="row mb-2">
+              <div className="col-6">
+                <input
+                  className="form-control"
+                  onChange={handleChange}
+                  placeholder="Name"
+                  name="shipName"
+                  type="text"
+                />
+              </div>
+              <div className="col-6">
+                <input
+                  className="form-control"
+                  onChange={handleChange}
+                  placeholder="Attn:"
+                  name="shipAttn"
+                  type="text"
+                />
+              </div>
+            </div>
 
-                <div className="row mb-2">
+            <div className="row mb-2">
+              <div className="col-12">
+                <input
+                  className="form-control"
+                  onChange={handleChange}
+                  placeholder="Address"
+                  name="shipAddress"
+                  type="text"
+                />
+              </div>
+            </div>
+
+            <div className="row mb-2">
+              <div className="col-6">
+                <input
+                  className="form-control"
+                  onChange={handleChange}
+                  placeholder="State"
+                  name="shipState"
+                  type="text"
+                />
+              </div>
+              <div className="col-6">
+                <input
+                  className="form-control"
+                  onChange={handleChange}
+                  placeholder="Zip Code"
+                  name="shipZipCode"
+                  type="text"
+                />
+              </div>
+            </div>
+
+            <div className="row mb-2">
+              <div className="col-6">
+                <input
+                  className="form-control"
+                  onChange={handleChange}
+                  placeholder="Email"
+                  name="shipEmail"
+                  type="email"
+                />
+              </div>
+              <div className="col-6">
+                <input
+                  className="form-control"
+                  onChange={handleChange}
+                  placeholder="Phone"
+                  name="shipPhone"
+                  type="tel"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="col-6">
+            <div className="row mb-2">
+              <div className="col-12 mb-2">
+                <input
+                  placeholder="Tracking URL"
+                  className="form-control"
+                  onChange={handleChange}
+                  name="shipTrackingUrl"
+                  type="text"
+                />
+              </div>
+              <div className="col-12 mb-2">
+                <textarea
+                  className="form-control"
+                  onChange={handleChange}
+                  placeholder="Notes"
+                  name="shipNotes"
+                  type="text"
+                  rows="1"
+                ></textarea>
+              </div>
+            </div>
+
+            <div className="row mb-2">
+              <div className="col-6">
+                <div className="row">
+                  <div className="col-12">
+                    <h6>Shipping Label</h6>
+                  </div>
                   <div className="col-12">
                     <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Address"
-                    />
-                  </div>
-                </div>
-
-                <div className="row mb-2">
-                  <div className="col-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="State"
-                    />
-                  </div>
-                  <div className="col-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Zip Code"
-                    />
-                  </div>
-                </div>
-
-                <div className="row mb-2">
-                  <div className="col-6">
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Email"
-                    />
-                  </div>
-                  <div className="col-6">
-                    <input
-                      type="tel"
-                      className="form-control"
-                      placeholder="Phone"
+                      onChange={handleFile}
+                      name="shipLabel"
+                      type="file"
+                      //
                     />
                   </div>
                 </div>
               </div>
-              <div className="col-6 mt-n5">
-                <div className="row mb-2">
-                  <div className="col-2">
-                    <div className="form-check">
-                      <input
-                        checked={state.shipPickup}
-                        className="form-check-input"
-                        onChange={handlePickupCheck}
-                        type="checkbox"
-                        id="shipPickup"
-                      />
-                      <label className="form-check-label" htmlFor="shipPickup">
-                        Pickup
-                      </label>
-                    </div>
+              <div className="col-6">
+                <div className="row">
+                  <div className="col-12">
+                    <h6>Packing List</h6>
                   </div>
-                  <div className="col-10">
-                    <div className="btn-group btn-block" role="group">
-                      <button
-                        className="btn btn-outline-secondary dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                        type="button"
-                      >
-                        {state.shipMethod}
-                      </button>
-                      <ul className="dropdown-menu">
-                        {shipping.map((name, index) => (
-                          <li key={index}>
-                            <p
-                              onClick={() =>
-                                setState({ ...state, shipMethod: name })
-                              }
-                              className="dropdown-item pointer"
-                            >
-                              {name}
-                            </p>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row mb-2">
-                  <div className="col-12 mb-2">
+                  <div className="col-12">
                     <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Tracking URL"
+                      onChange={handleFile}
+                      id="shipPackingList"
+                      type="file"
                     />
-                  </div>
-                  <div className="col-12 mb-2">
-                    <textarea
-                      rows="1"
-                      className="form-control"
-                      placeholder="Notes"
-                      type="text"
-                      id="shippingNotes"
-                    ></textarea>
-                  </div>
-                </div>
-
-                <div className="row mb-2">
-                  <div className="col-6">
-                    <div className="row">
-                      <div className="col-12">
-                        <h6>Shipping Label</h6>
-                      </div>
-                      <div className="col-12">
-                        <input type="file" id="shippingLabel" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6">
-                    <div className="row">
-                      <div className="col-12">
-                        <h6>Packing List</h6>
-                      </div>
-                      <div className="col-12">
-                        <input type="file" id="packingList" />
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

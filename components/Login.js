@@ -4,7 +4,6 @@ import React from "react";
 export default function Login() {
   const router = useRouter();
 
-  const [savedUser, setSavedUser] = React.useState(null);
   const [user, setUser] = React.useState(null);
   const [password, setPassword] = React.useState(null);
 
@@ -29,12 +28,10 @@ export default function Login() {
         if (password !== "Admin")
           alert("Password for this username is incorrect.");
         if (password === "Admin") saveUser(user);
-        //
       } else if (user === "Sales") {
         if (password !== "Sales")
           alert("Password for this username is incorrect.");
         if (password === "Sales") saveUser(user);
-        //
       } else if (user === "Production") {
         if (password !== "Production")
           alert("Password for this username is incorrect.");
@@ -55,7 +52,6 @@ export default function Login() {
     const loggedIN = localStorage.getItem("name");
 
     if (loggedIN !== "null") router.push("/dashboard");
-    else setSavedUser(loggedIN);
   }, []);
 
   return (
