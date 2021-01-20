@@ -78,7 +78,7 @@ export default function CreateTypeSetup({ state, setState }) {
               placeholder="Setup, Digi.. etc"
               onChange={handleChange}
               className="form-control"
-              name="orderSetup"
+              name="setup"
               type="text"
             />
           </div>
@@ -87,7 +87,7 @@ export default function CreateTypeSetup({ state, setState }) {
               className="form-control"
               onChange={handleChange}
               placeholder="Screens"
-              name="orderScreens"
+              name="setupScreens"
               type="text"
             />
           </div>
@@ -96,7 +96,7 @@ export default function CreateTypeSetup({ state, setState }) {
               className="form-control"
               onChange={handleChange}
               placeholder="Screen"
-              name="orderScreen"
+              name="setupScreen"
               type="text"
             />
           </div>
@@ -105,7 +105,7 @@ export default function CreateTypeSetup({ state, setState }) {
               className="form-control mt-2"
               onChange={handleChange}
               placeholder="Notes"
-              name="orderSetupNotes"
+              name="setupNotes"
               rows="1"
             ></textarea>
           </div>

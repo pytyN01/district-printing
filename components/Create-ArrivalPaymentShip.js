@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function CreateArrivalPaymentShip({ state, setState }) {
-  const [arrivalDate, setArrivalDate] = React.useState("");
   const shipping = ["FedEx", "USPS - US Postal", "UPS", "DHL"];
   const arrival = [
     "7-10 Days",
@@ -11,10 +10,11 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
     "Custom",
   ];
 
+  const [name, setName] = React.useState(null);
+
   React.useEffect(() => {
-    const date = new Date().toISOString().substr(0, 10);
-    setArrivalDate(date);
-  }, []);
+    handleArrivalDate(name);
+  }, [state.arrivalTime]);
 
   const handleChange = (evt) => {
     const name = evt.target.name;
@@ -26,6 +26,31 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
     const name = evt.target.name;
     const newValue = evt.target.files[0];
     setState({ ...state, [name]: newValue });
+  };
+
+  const handleArrivalTime = (name) => {
+    setName(name);
+    setState({ ...state, arrivalTime: name });
+  };
+
+  const handleArrivalDate = (name) => {
+    let time = 0;
+
+    if (name === "7-10 Days") time = 7;
+    else if (name === "5 Business Days") time = 5;
+    else if (name === "3 Days") time = 3;
+    else if (name === "Next Day") time = 1;
+    else time = 0;
+
+    if (time >= 1) {
+      const date = new Date();
+      const newDate = date.setDate(date.getDate() + time);
+      const formattedDate = new Date(newDate).toISOString().substr(0, 10);
+
+      setState({ ...state, arrivalDate: formattedDate });
+    } else {
+      setState({ ...state, arrivalDate: "" });
+    }
   };
 
   const handleDueCheck = () => {
@@ -51,7 +76,7 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
               alt="Arrival Icon"
             />
           </div>
-          <div className="col-4">
+          <div className="col-5">
             <div className="btn-group btn-block" role="group">
               <button
                 className="btn btn-outline-secondary dropdown-toggle"
@@ -65,7 +90,7 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
                 {arrival.map((name, index) => (
                   <li key={index}>
                     <p
-                      onClick={() => setState({ ...state, arrivalTime: name })}
+                      onClick={() => handleArrivalTime(name)}
                       className="dropdown-item pointer"
                     >
                       {name}
@@ -79,9 +104,11 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
             <div className="row">
               <div className="col-12">
                 <input
-                  onChange={(e) => setArrivalDate(e.target.value)}
+                  onChange={(e) =>
+                    setState({ ...state, arrivalDate: e.target.value })
+                  }
                   className="form-control"
-                  value={arrivalDate}
+                  value={state.arrivalDate}
                   type="date"
                 />
               </div>
@@ -115,7 +142,7 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
               alt="Payment Icon"
             />
           </div>
-          <div className="col-4">
+          <div className="col-5">
             <input
               placeholder="Invoice URL"
               onChange={handleChange}
@@ -210,7 +237,7 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
         </div>
       </div>
       <div className="col-12">
-        <div className="row">
+        <div className="row mt-2">
           <div className="col-6">
             <div className="row mb-2">
               <div className="col-6">
@@ -333,8 +360,8 @@ export default function CreateArrivalPaymentShip({ state, setState }) {
                   </div>
                   <div className="col-12">
                     <input
+                      name="shipPackingList"
                       onChange={handleFile}
-                      id="shipPackingList"
                       type="file"
                     />
                   </div>

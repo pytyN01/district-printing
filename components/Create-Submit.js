@@ -1,21 +1,17 @@
-export default function CreateSubmit() {
+export default function CreateSubmit({ state }) {
   return (
     <div className="row">
       <div className="col-6">
         <button
-          style={{ width: "23vw" }}
+          onClick={() => console.log(state)}
           type="button"
-          className="btn btn-primary btn-lg"
+          className="btn btn-primary btn-lg btn-block"
         >
           Submit
         </button>
       </div>
       <div className="col-6">
-        <button
-          style={{ width: "23vw" }}
-          type="button"
-          className="btn btn-danger btn-lg"
-        >
+        <button type="button" className="btn btn-danger btn-lg btn-block">
           Cancel
         </button>
       </div>

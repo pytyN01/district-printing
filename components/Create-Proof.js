@@ -1,11 +1,11 @@
 import { useDropzone } from "react-dropzone";
 import React from "react";
 
-export default function DropZone({ handleArt }) {
+export default function DropZone({ handleProof }) {
   const [myFiles, setMyFiles] = React.useState([]);
 
   React.useEffect(() => {
-    handleArt(myFiles);
+    handleProof(myFiles);
   }, [myFiles]);
 
   const onDrop = React.useCallback(
@@ -51,11 +51,16 @@ export default function DropZone({ handleArt }) {
           <img
             src="/icon-drag.jpg"
             className="img-thumbnail dropIMG ml-n3"
-            alt="Art Drag"
+            alt="Proof Drag"
           />
         </div>
       </div>
-      <div className="dropText">
+      <div
+        className="dropText"
+        style={{
+          background: files.length === 0 && "transparent",
+        }}
+      >
         <ul>{files}</ul>
       </div>
     </section>

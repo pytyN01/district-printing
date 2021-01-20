@@ -1,17 +1,17 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  height: 100%;
   background-color: #f5f5f5 !important;
   overflow-x: hidden;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 * {
@@ -19,27 +19,27 @@ a {
 }
 
 .CENTER {
-  position: fixed;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
+  position: fixed;
+  left: 50%;
+  top: 50%;
 }
 
 .form-signin {
-  width: 100%;
   max-width: 350px;
-  width: 350px;
   padding: 15px;
+  width: 350px;
   margin: auto;
   height: 100%;
+  width: 100%;
 }
 
 .form-signin .form-control {
-  position: relative;
   box-sizing: border-box;
-  height: auto;
-  padding: 10px;
+  position: relative;
   font-size: 16px;
+  padding: 10px;
+  height: auto;
 }
 
 .form-signin .form-control:focus {
@@ -47,45 +47,40 @@ a {
 }
 
 .form-signin input[type="email"] {
-  margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+  margin-bottom: -1px;
 }
 
 .form-signin input[type="password"] {
-  margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  margin-bottom: 10px;
 }
 
 .feather {
-  width: 16px;
-  height: 16px;
   vertical-align: text-bottom;
+  height: 16px;
+  width: 16px;
 }
 
 .sidebar {
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  padding: 48px 0 0;
   position: fixed;
-  top: 0;
+  z-index: 100;
   bottom: 0;
   left: 0;
-  z-index: 100;
-  padding: 48px 0 0;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  top: 0;
 }
 
-@media (max-width: 767.98px) {
-  .sidebar {
-    top: 5rem;
-  }
-}
 .sidebar-sticky {
-  position: relative;
-  top: 0;
   height: calc(100vh - 48px);
   padding-top: 0.5rem;
+  position: relative;
   overflow-x: hidden;
   overflow-y: auto;
+  top: 0;
 }
 
 .sidebar .nav-link {
@@ -109,14 +104,14 @@ a {
 }
 
 .nav-link:hover {
-  color: black;
   font-size: 1.1rem;
+  color: black;
 }
 
 .sidebar-heading {
-  font-size: 1rem;
-  font-weight: bold;
   text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .navbar-brand {
@@ -135,14 +130,14 @@ a {
 }
 
 .form-control-dark {
-  color: #fff;
   background-color: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 .form-control-dark:focus {
-  border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+  border-color: transparent;
 }
 
 .carousel-indicators li {
@@ -154,34 +149,35 @@ a {
 }
 
 .dropIMG {
-  width: 107%;
   min-width: 107%;
+  width: 107%;
 }
 
 .dropText {
-  color: white;
-  z-index: 99;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 24px;
   padding-right: 20px;
   position: absolute;
-  left: 15px;
+  padding-top: 10px;
+  color: white;
+  z-index: 99;
+  left: 20px;
   top: 15px;
 }
 
 .img40 {
-  height: 40px !important;
   min-height: 40px !important;
+  height: 40px !important;
 }
 
 .img50 {
-  height: 50px !important;
   min-height: 50px !important;
+  height: 50px !important;
 }
 
 .img80 {
-  height: 80px !important;
   min-height: 80px !important;
+  height: 80px !important;
 }
 
 .pointer:hover {

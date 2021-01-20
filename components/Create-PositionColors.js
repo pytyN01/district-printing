@@ -1,12 +1,4 @@
 export default function CreatePositionColors({ state, setState }) {
-  const {
-    positionMatchProof,
-    colorsColor4,
-    colorsColor5,
-    colorsColor6,
-    colorsMatchProof,
-  } = state;
-
   const handleChange = (evt) => {
     const name = evt.target.name;
     const newValue = evt.target.value;
@@ -14,11 +6,11 @@ export default function CreatePositionColors({ state, setState }) {
   };
 
   const handlePositionCheck = () => {
-    setState({ ...state, positionMatchProof: !positionMatchProof });
+    setState({ ...state, positionMatchProof: !state.positionMatchProof });
   };
 
   const handleColorCheck = () => {
-    setState({ ...state, colorsMatchProof: !colorsMatchProof });
+    setState({ ...state, colorsMatchProof: !state.colorsMatchProof });
   };
 
   return (
@@ -87,7 +79,7 @@ export default function CreatePositionColors({ state, setState }) {
                 <div className="form-check py-2">
                   <input
                     onChange={handlePositionCheck}
-                    checked={positionMatchProof}
+                    checked={state.positionMatchProof}
                     className="form-check-input"
                     id="positionMatchProof"
                     type="checkbox"
@@ -175,7 +167,7 @@ export default function CreatePositionColors({ state, setState }) {
                   <div className="col-8 pl-0">
                     <input
                       className="form-control"
-                      value={colorsColor4}
+                      value={state.colorsColor4}
                       type="text"
                       disabled
                     />
@@ -195,7 +187,7 @@ export default function CreatePositionColors({ state, setState }) {
                   <div className="col-8 pl-0">
                     <input
                       className="form-control"
-                      value={colorsColor5}
+                      value={state.colorsColor5}
                       type="text"
                       disabled
                     />
@@ -215,7 +207,7 @@ export default function CreatePositionColors({ state, setState }) {
                   <div className="col-8 pl-0">
                     <input
                       className="form-control"
-                      value={colorsColor6}
+                      value={state.colorsColor6}
                       type="text"
                       disabled
                     />
@@ -229,7 +221,7 @@ export default function CreatePositionColors({ state, setState }) {
                   <input
                     className="form-check-input"
                     onChange={handleColorCheck}
-                    checked={colorsMatchProof}
+                    checked={state.colorsMatchProof}
                     type="checkbox"
                     id="colorsMatchProof"
                   />

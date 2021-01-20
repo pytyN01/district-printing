@@ -1,5 +1,5 @@
-import ArtDrop from "./Art";
-import ProofDrop from "./Proof";
+import ArtDrop from "./Create-Art";
+import ProofDrop from "./Create-Proof";
 
 export default function CreateProofArt({ state, setState }) {
   const handleChange = (evt) => {
