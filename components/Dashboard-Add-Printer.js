@@ -1,17 +1,7 @@
 import React from "react";
 
-export default function AddPrinter({ arrival }) {
-  const [printDate, setPrintDate] = React.useState("");
-  const [arrivalDate, setArrivalDate] = React.useState("");
-
-  React.useEffect(() => {
-    const date = new Date().toISOString().substr(0, 10);
-    setPrintDate(date);
-  }, []);
-
-  const [printer, setPrinter] = React.useState("Select Printer");
+export default function AddPrinter({ item }) {
   const printers = ["Adrian", "Andrew", "Carlos", "Felipe", "Julio"];
-  const [schedule, setSchedule] = React.useState("Select Schedule");
   const schedules = [
     "First 8am",
     "Mid 11am",
@@ -20,7 +10,6 @@ export default function AddPrinter({ arrival }) {
     "Rush - All Day",
     "Overtime 6pm",
   ];
-  const [duration, setDuration] = React.useState("Select Duration");
   const durations = [
     "30min",
     "1 hr",
@@ -38,10 +27,6 @@ export default function AddPrinter({ arrival }) {
   return (
     <>
       <button
-        onClick={() =>
-          setArrivalDate(new Date(arrival).toISOString().substr(0, 10))
-        }
-        type="button"
         className="btn btn-lg btn-secondary"
         data-bs-toggle="modal"
         data-bs-target="#assignPrinterInfo"
@@ -77,7 +62,7 @@ export default function AddPrinter({ arrival }) {
                   <input
                     onChange={(e) => setArrivalDate(e.target.value)}
                     className="form-control"
-                    value={arrivalDate}
+                    value={item.arrivalDate}
                     type="date"
                   />
                 </div>
@@ -93,13 +78,13 @@ export default function AddPrinter({ arrival }) {
                       aria-expanded="false"
                       type="button"
                     >
-                      {printer}
+                      {item.printer}
                     </button>
                     <ul className="dropdown-menu">
                       {printers.map((name, index) => (
                         <li key={index}>
                           <p
-                            onClick={() => setPrinter(name)}
+                            onClick={() => console.log(name)}
                             className="dropdown-item pointer"
                           >
                             {name}
@@ -116,7 +101,7 @@ export default function AddPrinter({ arrival }) {
                 <div className="col-8">
                   <input
                     onChange={(e) => setPrintDate(e.target.value)}
-                    value={printDate}
+                    value={item.printerDate}
                     className="form-control"
                     type="date"
                   />
@@ -133,13 +118,13 @@ export default function AddPrinter({ arrival }) {
                       aria-expanded="false"
                       type="button"
                     >
-                      {schedule}
+                      {item.printerSchedule}
                     </button>
                     <ul className="dropdown-menu">
                       {schedules.map((name, index) => (
                         <li key={index}>
                           <p
-                            onClick={() => setSchedule(name)}
+                            onClick={() => console.log(name)}
                             className="dropdown-item pointer"
                           >
                             {name}
@@ -161,7 +146,7 @@ export default function AddPrinter({ arrival }) {
                       aria-expanded="false"
                       type="button"
                     >
-                      {duration}
+                      {item.printerDuration}
                     </button>
                     <ul
                       className="dropdown-menu"
@@ -170,7 +155,7 @@ export default function AddPrinter({ arrival }) {
                       {durations.map((name, index) => (
                         <li key={index}>
                           <p
-                            onClick={() => setDuration(name)}
+                            onClick={() => console.log(name)}
                             className="dropdown-item pointer"
                           >
                             {name}

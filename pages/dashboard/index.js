@@ -28,9 +28,7 @@ export async function getServerSideProps() {
     .toArray();
 
   const products = data.map((product) => {
-    // const id = JSON.parse(JSON.stringify(product._id));
     return {
-      // ID: id,
       itemID: product.itemID,
       orderName: product.orderName,
       invoiceNumber: product.invoiceNumber,
@@ -45,10 +43,12 @@ export async function getServerSideProps() {
       status: product.status,
       statusEditor: product.statusEditor,
       printer: product.printer,
-      printerTime: product.printerTime,
+      printerDate: product.printerDate,
+      printerDuration: product.printerDuration,
+      printerSchedule: product.printerSchedule,
       art: product.art,
-      trackingUrl: product.shipTrackingUrl,
-      packingUrl: product.shipPackingList,
+      shipLabel: product.shipLabel,
+      shipPackingList: product.shipPackingList,
     };
   });
 

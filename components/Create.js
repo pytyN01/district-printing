@@ -6,41 +6,22 @@ import CreateProofArt from "./Create-ProofArt";
 import CreateProduct from "./Create-Product";
 import CreateSubmit from "./Create-Submit";
 import Header from "./Header";
+import React from "react";
+
+import { useRouter } from "next/router";
 
 export default function Create() {
+  const router = useRouter();
+
   const [state, setState] = React.useState({
-    itemID: "",
-    invoiceNumber: "",
-    invoicePaid: false,
     apparel: false,
-    status: "New Order",
-    statusEditor: "",
-    printer: "",
-    printerTime: "",
-    createdDate: new Date().toISOString().substr(0, 10),
     arrivalDate: "",
-    orderName: "",
-    orderCustomer: "Customer Name",
-    orderAgent: "Customer Agent",
-    orderMultiplePages: false,
-    orderType: "Order Type",
-    orderTypeNotes: "",
-    setup: "",
-    setupScreens: "",
-    setupScreen: "",
-    setupNotes: "",
-    proof: [],
-    proofNotes: "",
+    arrivalHardDueDate: false,
+    arrivalTime: "Est. Arrival Time",
     art: [],
     artLink: "",
-    artSize: false,
     artNotes: "",
-    positionFront: "",
-    positionBack: "",
-    positionRightLeft: "",
-    positionAdditional: "",
-    positionMatchProof: false,
-    positionNotes: "",
+    artSize: false,
     colorsColor1: "",
     colorsColor2: "",
     colorsColor3: "",
@@ -49,25 +30,16 @@ export default function Create() {
     colorsColor6: "#000000",
     colorsMatchProof: false,
     colorsNotes: "",
-    arrivalTime: "Est. Arrival Time",
-    arrivalRequestDate: "",
-    arrivalHardDueDate: false,
-    paymentInvoiceUrl: "",
-    paymentNotes: "",
-    paymentTerms: false,
-    shipName: "",
-    shipAttn: "",
-    shipAddress: "",
-    shipState: "",
-    shipZipCode: "",
-    shipEmail: "",
-    shipPhone: "",
-    shipPickup: false,
-    shipMethod: "Shipping Method",
-    shipTrackingUrl: "",
-    shipNotes: "",
-    shipLabel: "",
-    shipPackingList: "",
+    createdDate: new Date().toISOString().substr(0, 10),
+    invoiceNumber: "",
+    invoicePaid: false,
+    itemID: "",
+    orderAgent: "Customer Agent",
+    orderCustomer: "Customer Name",
+    orderMultiplePages: false,
+    orderName: "",
+    orderType: "Order Type",
+    orderTypeNotes: "",
     //#region P1
     p1Men: false,
     p1Woman: false,
@@ -213,7 +185,47 @@ export default function Create() {
     p5Other4: "Other",
     p5Other4PCS: "",
     //#endregion
+    paymentInvoiceUrl: "",
+    paymentNotes: "",
+    paymentTerms: false,
+    positionAdditional: "",
+    positionBack: "",
+    positionFront: "",
+    positionMatchProof: false,
+    positionNotes: "",
+    positionRightLeft: "",
+    printer: "",
+    printerDate: new Date().toISOString().substr(0, 10),
+    printerDuration: "",
+    printerSchedule: "",
+    proof: [],
+    proofNotes: "",
+    setup: "",
+    setupNotes: "",
+    setupScreen: "",
+    setupScreens: "",
+    shipAddress: "",
+    shipAttn: "",
+    shipEmail: "",
+    shipLabel: "",
+    shipMethod: "Shipping Method",
+    shipName: "",
+    shipNotes: "",
+    shipPackingList: "",
+    shipPhone: "",
+    shipPickup: false,
+    shipState: "",
+    shipTrackingUrl: "",
+    shipZipCode: "",
+    status: "New Order",
+    statusEditor: "",
   });
+
+  React.useEffect(() => {
+    const loggedIN = localStorage.getItem("name");
+    if (!loggedIN) router.push("/");
+    else if (loggedIN === "null") router.push("/");
+  }, []);
 
   return (
     <>

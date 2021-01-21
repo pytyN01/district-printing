@@ -51,7 +51,8 @@ export default function Login() {
   React.useEffect(() => {
     const loggedIN = localStorage.getItem("name");
 
-    if (loggedIN !== "null") router.push("/dashboard");
+    if (!loggedIN) localStorage.setItem("name", "null");
+    else if (loggedIN !== "null") router.push("/dashboard");
   }, []);
 
   return (

@@ -71,7 +71,9 @@ export default function TBody({ data }) {
           </td>
           <td>
             <p>{item.arrivalDate}</p>
-            <small>{item.arrivalHardDueDate && "Hard Due Date!!"}</small>
+            <small>
+              {item.arrivalHardDueDate ? "Hard Due Date!!" : "Soft Due Date"}
+            </small>
           </td>
           <td>
             <p className="text-nowrap">{item.status}</p>
@@ -80,12 +82,14 @@ export default function TBody({ data }) {
           {user !== "Sales" && (
             <td>
               <p>{item.printer}</p>
-              <small>{item.printerTime}</small>
+              <small>
+                {item.printerSchedule} - {item.printerDuration}
+              </small>
             </td>
           )}
           {user === "Andrew" && (
             <td>
-              <AddPrinter arrival={item.arrivalDate} />
+              <AddPrinter item={item} />
             </td>
           )}
           <td>
@@ -99,7 +103,7 @@ export default function TBody({ data }) {
             ))}
           </td>
           <td>
-            <ButtonPDF />
+            <ButtonPDF item={item} />
           </td>
           <td>
             <ButtonOptions user={user} />

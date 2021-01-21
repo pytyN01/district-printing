@@ -11,7 +11,8 @@ export default function Dashboard({ data }) {
 
   React.useEffect(() => {
     const loggedIN = localStorage.getItem("name");
-    if (loggedIN === "null") router.push("/");
+    if (!loggedIN) router.push("/");
+    else if (loggedIN === "null") router.push("/");
   }, []);
 
   return (
