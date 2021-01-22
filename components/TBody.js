@@ -89,7 +89,13 @@ export default function TBody({ data }) {
           )}
           {user === "Andrew" && (
             <td>
-              <AddPrinter item={item} />
+              <AddPrinter
+                printerSchedule={item.printerSchedule}
+                printerDuration={item.printerDuration}
+                arrivalDate={item.arrivalDate}
+                printerDate={item.printerDate}
+                printer={item.printer}
+              />
             </td>
           )}
           <td>
@@ -106,7 +112,7 @@ export default function TBody({ data }) {
             <ButtonPDF item={item} />
           </td>
           <td>
-            <ButtonOptions user={user} />
+            <ButtonOptions item={item} user={user} />
           </td>
         </tr>
       ))}

@@ -1,6 +1,12 @@
 import React from "react";
 
-export default function AddPrinter({ item }) {
+export default function AddPrinter({
+  printerSchedule,
+  printerDuration,
+  arrivalDate,
+  printerDate,
+  printer,
+}) {
   const printers = ["Adrian", "Andrew", "Carlos", "Felipe", "Julio"];
   const schedules = [
     "First 8am",
@@ -24,12 +30,35 @@ export default function AddPrinter({ item }) {
     "7 hr",
   ];
 
+  const [schedule, setSchedule] = React.useState("");
+  const [duration, setDuration] = React.useState("");
+  const [arrival, setArrival] = React.useState("");
+  const [print, setPrint] = React.useState("");
+  const [name, setName] = React.useState("");
+
+  const log = () => {
+    console.log("printerSchedule:", printerSchedule);
+    console.log("printerDuration:", printerDuration);
+    console.log("arrivalDate:", arrivalDate);
+    console.log("printerDate:", printerDate);
+    console.log("printer:", printer);
+  };
+
+  React.useEffect(() => {
+    setSchedule(printerSchedule);
+    setDuration(printerDuration);
+    setArrival(new Date(arrivalDate).toISOString().substr(0, 10));
+    setPrint(new Date(printerDate).toISOString().substr(0, 10));
+    setName(printer);
+  }, []);
+
   return (
     <>
       <button
         className="btn btn-lg btn-secondary"
         data-bs-toggle="modal"
         data-bs-target="#assignPrinterInfo"
+        onClick={log}
       >
         <i aria-hidden className="far fa-edit"></i>
       </button>
@@ -60,9 +89,9 @@ export default function AddPrinter({ item }) {
                 <label className="col-4 col-form-label">Arrival Date</label>
                 <div className="col-8">
                   <input
-                    onChange={(e) => setArrivalDate(e.target.value)}
+                    onChange={(e) => console.log(e.target.value)}
                     className="form-control"
-                    value={item.arrivalDate}
+                    value={arrival}
                     type="date"
                   />
                 </div>
@@ -78,7 +107,7 @@ export default function AddPrinter({ item }) {
                       aria-expanded="false"
                       type="button"
                     >
-                      {item.printer}
+                      {name}
                     </button>
                     <ul className="dropdown-menu">
                       {printers.map((name, index) => (
@@ -100,8 +129,8 @@ export default function AddPrinter({ item }) {
                 <label className="col-4 col-form-label">Print Date</label>
                 <div className="col-8">
                   <input
-                    onChange={(e) => setPrintDate(e.target.value)}
-                    value={item.printerDate}
+                    onChange={(e) => console.log(e.target.value)}
+                    value={print}
                     className="form-control"
                     type="date"
                   />
@@ -118,7 +147,7 @@ export default function AddPrinter({ item }) {
                       aria-expanded="false"
                       type="button"
                     >
-                      {item.printerSchedule}
+                      {schedule}
                     </button>
                     <ul className="dropdown-menu">
                       {schedules.map((name, index) => (
@@ -146,7 +175,7 @@ export default function AddPrinter({ item }) {
                       aria-expanded="false"
                       type="button"
                     >
-                      {item.printerDuration}
+                      {duration}
                     </button>
                     <ul
                       className="dropdown-menu"
