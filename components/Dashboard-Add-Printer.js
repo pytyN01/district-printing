@@ -77,7 +77,7 @@ export default function AddPrinter({
                   <input
                     onChange={(e) => console.log(e.target.value)}
                     className="form-control"
-                    value={arrivalDate}
+                    value={new Date(arrivalDate).toISOString().substr(0, 10)}
                     type="date"
                   />
                 </div>
@@ -116,7 +116,7 @@ export default function AddPrinter({
                 <div className="col-8">
                   <input
                     onChange={(e) => setPrintDate(e.target.value)}
-                    value={printerDate}
+                    value={new Date(printerDate).toISOString().substr(0, 10)}
                     className="form-control"
                     type="date"
                   />
